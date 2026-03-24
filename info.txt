@@ -1,0 +1,4 @@
+这是一个包含列表、字典、函数和文件操作的示例。
+我最喜欢的食物: ['pizza', 'burger', 'sushi']
+我的信息: {'name': 'jelf', 'age': 22, 'hobby': 'coding'}
+函数示例: multiply(5, 3) = 15
