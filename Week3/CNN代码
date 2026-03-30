@@ -1,0 +1,40 @@
+import torch
+import torch.nn as nn
+
+# 定义一个简单 CNN
+class SimpleCNN(nn.Module):
+    def __init__(self, num_classes=10):
+        super().__init__()
+        
+        # 特征提取部分
+        self.features = nn.Sequential(
+            # 第一层卷积
+            nn.Conv2d(1, 16, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(2),
+            
+            # 第二层卷积
+            nn.Conv2d(16, 32, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(2),
+        )
+        
+        # 分类部分
+        self.classifier = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(32 * 7 * 7, 128),
+            nn.ReLU(),
+            nn.Linear(128, num_classes)
+        )
+
+    def forward(self, x):
+        x = self.features(x)
+        x = self.classifier(x)
+        return x
+
+# 测试
+model = SimpleCNN()
+# 输入: batch=1, 通道=1, 高=28, 宽=28 (MNIST)
+test_input = torch.randn(1, 1, 28, 28)
+out = model(test_input)
+print(out.shape)  # torch.Size([1, 10])

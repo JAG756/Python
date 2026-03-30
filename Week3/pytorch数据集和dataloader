@@ -1,0 +1,24 @@
+import torch
+from torch.utils.data import Dataset, DataLoader
+
+# 1. 自定义数据集
+class MyData(Dataset):
+    def __init__(self):
+        self.x = torch.randn(100, 5)  # 100个样本，5个特征
+        self.y = torch.randint(0,2,(100,))  # 二分类标签
+
+    def __len__(self):
+        return len(self.x)
+
+    def __getitem__(self, idx):
+        return self.x[idx], self.y[idx]
+
+# 2. 创建数据集
+dataset = MyData()
+
+# 3. 创建 DataLoader
+dataloader = DataLoader(dataset, batch_size=8, shuffle=True)
+
+# 4. 模拟训练
+for step, (x, y) in enumerate(dataloader):
+    print(f"第{step}批 | 数据形状{x.shape} | 标签形状{y.shape}")

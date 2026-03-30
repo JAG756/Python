@@ -1,0 +1,15 @@
+# 核心框架
+langchain==0.2.10
+langchain-community==0.2.10
+langchain-huggingface==0.0.3
+
+# 向量库与向量化
+chromadb==0.5.13
+sentence-transformers==2.7.0
+
+# 界面
+gradio==4.37.2
+
+# 深度学习（如果后续跑通真实模型）
+# torch==2.3.1
+# transformers==4.41.2
