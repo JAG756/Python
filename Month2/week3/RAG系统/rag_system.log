@@ -1,0 +1,322 @@
+2026-04-04 17:03:11,272 - INFO - main.py:15 - 启动RAG系统
+2026-04-04 17:03:11,272 - INFO - model_loader.py:17 - 初始化模型加载器，目标设备：cuda
+2026-04-04 17:03:11,272 - INFO - model_loader.py:22 - 开始加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-04 17:03:11,273 - ERROR - model_loader.py:65 - 模型加载失败：We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+Traceback (most recent call last):
+  File "E:\anaconda\Lib\site-packages\transformers\utils\hub.py", line 422, in cached_files
+    hf_hub_download(
+    ~~~~~~~~~~~~~~~^
+        path_or_repo_id,
+        ^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\utils\_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\file_download.py", line 986, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<15 lines>...
+        dry_run=dry_run,
+    )
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\file_download.py", line 1137, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\file_download.py", line 1757, in _raise_on_head_call_error
+    raise LocalEntryNotFoundError(
+    ...<2 lines>...
+    )
+huggingface_hub.errors.LocalEntryNotFoundError: Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\anaconda\Lib\site-packages\transformers\models\auto\tokenization_auto.py", line 684, in from_pretrained
+    config = AutoConfig.from_pretrained(
+        pretrained_model_name_or_path, trust_remote_code=trust_remote_code, **kwargs
+    )
+  File "E:\anaconda\Lib\site-packages\transformers\models\auto\configuration_auto.py", line 1465, in from_pretrained
+    config_dict, unused_kwargs = PreTrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda\Lib\site-packages\transformers\configuration_utils.py", line 659, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda\Lib\site-packages\transformers\configuration_utils.py", line 714, in _get_config_dict
+    resolved_config_file = cached_file(
+        pretrained_model_name_or_path,
+    ...<9 lines>...
+        _commit_hash=commit_hash,
+    )
+  File "E:\anaconda\Lib\site-packages\transformers\utils\hub.py", line 278, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "E:\anaconda\Lib\site-packages\transformers\utils\hub.py", line 498, in cached_files
+    raise OSError(
+    ...<3 lines>...
+    ) from e
+OSError: We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\anaconda\Lib\site-packages\transformers\utils\hub.py", line 422, in cached_files
+    hf_hub_download(
+    ~~~~~~~~~~~~~~~^
+        path_or_repo_id,
+        ^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\utils\_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\file_download.py", line 986, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<15 lines>...
+        dry_run=dry_run,
+    )
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\file_download.py", line 1137, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\file_download.py", line 1757, in _raise_on_head_call_error
+    raise LocalEntryNotFoundError(
+    ...<2 lines>...
+    )
+huggingface_hub.errors.LocalEntryNotFoundError: Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "e:\Pythod\Month2\week3\RAG系统\core\model_loader.py", line 27, in load
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.model_name,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        cache_dir=os.path.join(os.path.expanduser("~"), ".cache/huggingface")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\anaconda\Lib\site-packages\transformers\models\auto\tokenization_auto.py", line 688, in from_pretrained
+    config = PreTrainedConfig.from_pretrained(pretrained_model_name_or_path, **kwargs)
+  File "E:\anaconda\Lib\site-packages\transformers\configuration_utils.py", line 618, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda\Lib\site-packages\transformers\configuration_utils.py", line 659, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda\Lib\site-packages\transformers\configuration_utils.py", line 714, in _get_config_dict
+    resolved_config_file = cached_file(
+        pretrained_model_name_or_path,
+    ...<9 lines>...
+        _commit_hash=commit_hash,
+    )
+  File "E:\anaconda\Lib\site-packages\transformers\utils\hub.py", line 278, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "E:\anaconda\Lib\site-packages\transformers\utils\hub.py", line 498, in cached_files
+    raise OSError(
+    ...<3 lines>...
+    ) from e
+OSError: We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+2026-04-04 17:03:11,279 - ERROR - main.py:52 - 系统启动失败：模型加载失败：We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+Traceback (most recent call last):
+  File "E:\anaconda\Lib\site-packages\transformers\utils\hub.py", line 422, in cached_files
+    hf_hub_download(
+    ~~~~~~~~~~~~~~~^
+        path_or_repo_id,
+        ^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\utils\_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\file_download.py", line 986, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<15 lines>...
+        dry_run=dry_run,
+    )
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\file_download.py", line 1137, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\file_download.py", line 1757, in _raise_on_head_call_error
+    raise LocalEntryNotFoundError(
+    ...<2 lines>...
+    )
+huggingface_hub.errors.LocalEntryNotFoundError: Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\anaconda\Lib\site-packages\transformers\models\auto\tokenization_auto.py", line 684, in from_pretrained
+    config = AutoConfig.from_pretrained(
+        pretrained_model_name_or_path, trust_remote_code=trust_remote_code, **kwargs
+    )
+  File "E:\anaconda\Lib\site-packages\transformers\models\auto\configuration_auto.py", line 1465, in from_pretrained
+    config_dict, unused_kwargs = PreTrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda\Lib\site-packages\transformers\configuration_utils.py", line 659, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda\Lib\site-packages\transformers\configuration_utils.py", line 714, in _get_config_dict
+    resolved_config_file = cached_file(
+        pretrained_model_name_or_path,
+    ...<9 lines>...
+        _commit_hash=commit_hash,
+    )
+  File "E:\anaconda\Lib\site-packages\transformers\utils\hub.py", line 278, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "E:\anaconda\Lib\site-packages\transformers\utils\hub.py", line 498, in cached_files
+    raise OSError(
+    ...<3 lines>...
+    ) from e
+OSError: We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\anaconda\Lib\site-packages\transformers\utils\hub.py", line 422, in cached_files
+    hf_hub_download(
+    ~~~~~~~~~~~~~~~^
+        path_or_repo_id,
+        ^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\utils\_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\file_download.py", line 986, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<15 lines>...
+        dry_run=dry_run,
+    )
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\file_download.py", line 1137, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda\Lib\site-packages\huggingface_hub\file_download.py", line 1757, in _raise_on_head_call_error
+    raise LocalEntryNotFoundError(
+    ...<2 lines>...
+    )
+huggingface_hub.errors.LocalEntryNotFoundError: Cannot find the requested files in the disk cache and outgoing traffic has been disabled. To enable hf.co look-ups and downloads online, set 'local_files_only' to False.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "e:\Pythod\Month2\week3\RAG系统\core\model_loader.py", line 27, in load
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.model_name,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        cache_dir=os.path.join(os.path.expanduser("~"), ".cache/huggingface")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\anaconda\Lib\site-packages\transformers\models\auto\tokenization_auto.py", line 688, in from_pretrained
+    config = PreTrainedConfig.from_pretrained(pretrained_model_name_or_path, **kwargs)
+  File "E:\anaconda\Lib\site-packages\transformers\configuration_utils.py", line 618, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda\Lib\site-packages\transformers\configuration_utils.py", line 659, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\anaconda\Lib\site-packages\transformers\configuration_utils.py", line 714, in _get_config_dict
+    resolved_config_file = cached_file(
+        pretrained_model_name_or_path,
+    ...<9 lines>...
+        _commit_hash=commit_hash,
+    )
+  File "E:\anaconda\Lib\site-packages\transformers\utils\hub.py", line 278, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "E:\anaconda\Lib\site-packages\transformers\utils\hub.py", line 498, in cached_files
+    raise OSError(
+    ...<3 lines>...
+    ) from e
+OSError: We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "e:\Pythod\Month2\week3\RAG系统\main.py", line 20, in main
+    model = ModelLoader().load()
+  File "e:\Pythod\Month2\week3\RAG系统\core\model_loader.py", line 66, in load
+    raise RuntimeError(f"模型加载失败：{str(e)}")
+RuntimeError: 模型加载失败：We couldn't connect to 'https://hf-mirror.com' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+2026-04-04 17:11:50,346 - INFO - knowledge_base.py:28 - 初始化知识库，向量库路径：./vector_db
+2026-04-04 17:11:50,355 - INFO - knowledge_base.py:145 - 开始加载已有向量库
+2026-04-04 17:11:50,378 - INFO - SentenceTransformer.py:227 - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-04 17:11:51,896 - INFO - knowledge_base.py:153 - 向量库加载成功
+2026-04-04 17:11:51,897 - INFO - rag_engine.py:17 - 初始化RAG引擎
+2026-04-04 17:11:52,849 - INFO - _client.py:1025 - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-04 17:11:54,219 - INFO - _client.py:1025 - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-04 17:11:56,274 - INFO - _client.py:1025 - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-04 17:12:21,686 - INFO - rag_engine.py:57 - 创建新会话：1775293941.686052
+2026-04-04 17:12:21,686 - INFO - chat_session.py:72 - 创建新会话实例：1775293941.686052
+2026-04-04 17:12:21,686 - INFO - rag_engine.py:76 - 会话1775293941.686052 - 原始问题：什么是整数 → 补全后：什么是整数
+2026-04-04 17:12:22,576 - INFO - knowledge_base.py:129 - 为什么是整数检索到1条有效结果
+2026-04-04 17:12:22,622 - INFO - rag_engine.py:103 - 会话1775293941.686052 - 成功生成回答，检索到1条结果
+2026-04-04 17:12:44,043 - INFO - rag_engine.py:76 - 会话1775293941.686052 - 原始问题：什么是RAG？ → 补全后：什么是RAG？
+2026-04-04 17:12:44,120 - INFO - knowledge_base.py:126 - 什么是RAG？的检索结果均超过阈值0.6
+2026-04-04 17:12:44,121 - INFO - rag_engine.py:82 - 会话1775293941.686052 - 未找到什么是RAG？相关信息
+2026-04-04 17:14:42,340 - INFO - knowledge_base.py:28 - 初始化知识库，向量库路径：./vector_db
+2026-04-04 17:14:42,340 - INFO - knowledge_base.py:145 - 开始加载已有向量库
+2026-04-04 17:14:42,342 - INFO - SentenceTransformer.py:227 - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-04 17:14:42,624 - WARNING - knowledge_base.py:156 - 向量库不存在，从docs目录构建
+2026-04-04 17:14:42,625 - INFO - knowledge_base.py:58 - 从目录构建知识库：e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-04 17:14:42,767 - INFO - SentenceTransformer.py:227 - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-04 17:14:44,006 - INFO - knowledge_base.py:91 - 目录知识库构建完成，共7个文档块
+2026-04-04 17:14:44,006 - INFO - rag_engine.py:17 - 初始化RAG引擎
+2026-04-04 17:14:44,867 - INFO - _client.py:1025 - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-04 17:14:46,320 - INFO - _client.py:1025 - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-04 17:14:48,386 - INFO - _client.py:1025 - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-04 17:14:58,412 - INFO - rag_engine.py:57 - 创建新会话：1775294098.4124315
+2026-04-04 17:14:58,413 - INFO - chat_session.py:72 - 创建新会话实例：1775294098.4124315
+2026-04-04 17:14:58,413 - INFO - rag_engine.py:76 - 会话1775294098.4124315 - 原始问题：什么是整数 → 补全后：什么是整数
+2026-04-04 17:14:58,507 - INFO - knowledge_base.py:129 - 为什么是整数检索到1条有效结果
+2026-04-04 17:14:58,507 - INFO - rag_engine.py:103 - 会话1775294098.4124315 - 成功生成回答，检索到1条结果
+2026-04-04 17:15:11,262 - INFO - rag_engine.py:76 - 会话1775294098.4124315 - 原始问题：什么是张量
+ → 补全后：什么是张量
+
+2026-04-04 17:15:11,364 - INFO - knowledge_base.py:129 - 为什么是张量
+检索到1条有效结果
+2026-04-04 17:15:11,370 - INFO - rag_engine.py:103 - 会话1775294098.4124315 - 成功生成回答，检索到1条结果
+2026-04-04 17:18:32,084 - INFO - knowledge_base.py:28 - 初始化知识库，向量库路径：./vector_db
+2026-04-04 17:18:32,084 - INFO - knowledge_base.py:145 - 开始加载已有向量库
+2026-04-04 17:18:32,085 - INFO - SentenceTransformer.py:227 - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-04 17:18:32,380 - WARNING - knowledge_base.py:156 - 向量库不存在，从docs目录构建
+2026-04-04 17:18:32,381 - INFO - knowledge_base.py:58 - 从目录构建知识库：e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-04 17:18:32,510 - INFO - SentenceTransformer.py:227 - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-04 17:18:33,724 - INFO - knowledge_base.py:91 - 目录知识库构建完成，共7个文档块
+2026-04-04 17:18:33,725 - INFO - rag_engine.py:17 - 初始化RAG引擎
+2026-04-04 17:18:34,612 - INFO - _client.py:1025 - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-04 17:18:36,054 - INFO - _client.py:1025 - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-04 17:18:38,118 - INFO - _client.py:1025 - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-04 17:18:57,811 - INFO - rag_engine.py:57 - 创建新会话：1775294337.8119297
+2026-04-04 17:18:57,812 - INFO - chat_session.py:72 - 创建新会话实例：1775294337.8119297
+2026-04-04 17:18:57,813 - INFO - rag_engine.py:76 - 会话1775294337.8119297 - 原始问题：什么是整数 → 补全后：什么是整数
+2026-04-04 17:18:57,911 - INFO - knowledge_base.py:129 - 为什么是整数检索到1条有效结果
+2026-04-04 17:18:57,912 - INFO - rag_engine.py:103 - 会话1775294337.8119297 - 成功生成回答，检索到1条结果
+2026-04-04 17:19:10,471 - INFO - rag_engine.py:76 - 会话1775294337.8119297 - 原始问题：什么是张量 → 补全后：什么是张量
+2026-04-04 17:19:10,551 - INFO - knowledge_base.py:129 - 为什么是张量检索到1条有效结果
+2026-04-04 17:19:10,551 - INFO - rag_engine.py:103 - 会话1775294337.8119297 - 成功生成回答，检索到1条结果
+2026-04-04 17:31:29,932 - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-04 17:31:30,748 - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-04 17:31:33,131 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-04 17:31:34,548 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-04 17:31:36,617 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-04 17:31:54,226 - INFO - 创建新会话实例：1775295114.2256467
