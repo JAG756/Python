@@ -4,13 +4,11 @@
 """
 
 import os
-import json
-import pickle
 from typing import List, Optional
-from datetime import datetime
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
+from utils.logger import logger
 
 class BatchVectorizer:
     """批量向量化处理器"""
@@ -31,16 +29,16 @@ class BatchVectorizer:
     def batch_vectorize(self, chunks: List[Document], batch_size: int = 100):
         """批量向量化"""
         total = len(chunks)
-        print(f"🚀 开始批量向量化，共 {total} 个块，批次大小 {batch_size}")
+        logger.info(f"🚀 开始批量向量化，共 {total} 个块，批次大小 {batch_size}")
         
         for i in range(0, total, batch_size):
             batch = chunks[i:i+batch_size]
-            print(f"  处理批次 {i//batch_size + 1}/{(total-1)//batch_size + 1}")
+            logger.info(f"  处理批次 {i//batch_size + 1}/{(total-1)//batch_size + 1}")
             
             # 这里可以根据需要批量处理
             # 目前 Chroma 内部已经支持批量
         
-        print(f"✅ 批量向量化完成")
+        logger.info(f"✅ 批量向量化完成")
     
     def create_vector_store(self, chunks: List[Document], persist: bool = True):
         """创建向量数据库"""
@@ -55,7 +53,7 @@ class BatchVectorizer:
         )
         
         if persist:
-            print(f"💾 向量库已保存到: {self.vector_db_path}")
+            logger.info(f"💾 向量库已保存到: {self.vector_db_path}")
         
         return self.vectordb
     
@@ -69,9 +67,9 @@ class BatchVectorizer:
                 persist_directory=self.vector_db_path,
                 embedding_function=self.embedding
             )
-            print(f"📂 加载已有向量库: {self.vector_db_path}")
+            logger.info(f"📂 加载已有向量库: {self.vector_db_path}")
         else:
-            print(f"⚠️ 向量库不存在: {self.vector_db_path}")
+            logger.warning(f"⚠️ 向量库不存在: {self.vector_db_path}")
         
         return self.vectordb
     
@@ -81,14 +79,14 @@ class BatchVectorizer:
             raise ValueError("请先创建或加载向量库")
         
         self.vectordb.add_documents(documents)
-        print(f"➕ 增量添加 {len(documents)} 个文档")
+        logger.info(f"➕ 增量添加 {len(documents)} 个文档")
     
     def delete_collection(self):
         """删除向量库"""
         import shutil
         if os.path.exists(self.vector_db_path):
             shutil.rmtree(self.vector_db_path)
-            print(f"🗑️ 已删除向量库: {self.vector_db_path}")
+            logger.info(f"🗑️ 已删除向量库: {self.vector_db_path}")
     
     def get_stats(self) -> dict:
         """获取向量库统计信息"""

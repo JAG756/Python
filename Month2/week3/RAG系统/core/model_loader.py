@@ -6,6 +6,7 @@ import os
 os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 
 from config import MODEL_NAME
+from utils.logger import logger
 
 class ModelLoader:
     """模型加载器"""
@@ -18,9 +19,9 @@ class ModelLoader:
         
     def load(self):
         """加载模型（使用本地缓存）"""
-        print(f"✅ 使用设备：{self.device}")
-        print(f"📦 加载模型：{self.model_name}")
-        print("📁 使用本地缓存，不联网...")
+        logger.info(f"使用设备：{self.device}")
+        logger.info(f"加载模型：{self.model_name}")
+        logger.info("使用本地缓存，不联网...")
         
         self.tokenizer = AutoTokenizer.from_pretrained(
             self.model_name, 
@@ -42,7 +43,7 @@ class ModelLoader:
         if self.device == "cpu":
             self.model = self.model.to(self.device)
         
-        print("✅ 模型加载完成")
+        logger.info("模型加载完成")
         return self
     
     def generate(self, prompt, max_new_tokens, temperature):

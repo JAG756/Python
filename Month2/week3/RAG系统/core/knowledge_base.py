@@ -12,6 +12,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from config import KNOWLEDGE_BASE, SIMILARITY_THRESHOLD, TOP_K
 from core.document_loader import DocumentLoader
 from core.batch_vectorizer import BatchVectorizer
+from utils.logger import logger
 
 class KnowledgeBase:
     """知识库管理器（带溯源）"""
@@ -27,8 +28,8 @@ class KnowledgeBase:
     
     def build_from_strings(self, texts: List[str]):
         """从字符串列表构建知识库"""
-        print("📚 从字符串构建知识库...")
-        
+        logger.info("从字符串构建知识库...")
+
         documents = []
         for i, text in enumerate(texts):
             doc = Document(
@@ -46,16 +47,16 @@ class KnowledgeBase:
         self.batch_vectorizer.init_embedding(self.device)
         self.vectordb = self.batch_vectorizer.create_vector_store(chunks)
         
-        print(f"✅ 知识库构建完成，共 {len(texts)} 条知识")
+        logger.info(f"知识库构建完成，共 {len(texts)} 条知识")
         return self
     
     def build_from_directory(self, directory_path: str):
         """从目录批量构建知识库"""
-        print(f"📚 从目录构建知识库: {directory_path}")
+        logger.info(f"从目录构建知识库: {directory_path}")
         
         if not os.path.exists(directory_path):
-            print(f"⚠️ 目录不存在: {directory_path}")
-            print("📚 使用默认知识库")
+            logger.warning(f"目录不存在: {directory_path}")
+            logger.info("使用默认知识库")
             return self.build_from_strings(KNOWLEDGE_BASE)
         
         files = os.listdir(directory_path)
@@ -63,16 +64,16 @@ class KnowledgeBase:
         txt_files = [f for f in files if f.endswith('.txt')]
         
         if not pdf_files and not txt_files:
-            print(f"⚠️ 目录中没有 PDF 或 TXT 文件: {directory_path}")
-            print("📚 使用默认知识库")
+            logger.warning(f"目录中没有 PDF 或 TXT 文件: {directory_path}")
+            logger.info("使用默认知识库")
             return self.build_from_strings(KNOWLEDGE_BASE)
         
-        print(f"📄 找到 {len(pdf_files)} 个 PDF 文件，{len(txt_files)} 个 TXT 文件")
+        logger.info(f"找到 {len(pdf_files)} 个 PDF 文件，{len(txt_files)} 个 TXT 文件")
         
         documents = self.doc_loader.load_directory(directory_path)
         
         if not documents:
-            print("⚠️ 没有加载到任何文档，使用默认知识库")
+            logger.warning("没有加载到任何文档，使用默认知识库")
             return self.build_from_strings(KNOWLEDGE_BASE)
         
         chunks = self.doc_loader.split_documents(documents)
@@ -80,7 +81,7 @@ class KnowledgeBase:
         self.batch_vectorizer.init_embedding(self.device)
         self.vectordb = self.batch_vectorizer.create_vector_store(chunks)
         
-        print(f"✅ 知识库构建完成，共 {len(chunks)} 个文档块")
+        logger.info(f"知识库构建完成，共 {len(chunks)} 个文档块")
         return self
     
     def search_with_source(self, question: str) -> Optional[Dict]:
@@ -121,20 +122,20 @@ class KnowledgeBase:
     
     def load_persisted(self):
         """加载已存在的向量库"""
-        print("📂 加载已有向量库...")
+        logger.info("📂 加载已有向量库...")
         
         self.batch_vectorizer.init_embedding(self.device)
         self.vectordb = self.batch_vectorizer.load_vector_store()
         
         if self.vectordb:
-            print("✅ 向量库加载成功")
+            logger.info("✅ 向量库加载成功")
         else:
-            print("⚠️ 向量库不存在，正在从 docs 目录构建...")
+            logger.warning("⚠️ 向量库不存在，正在从 docs 目录构建...")
             import os
             current_file = os.path.abspath(__file__)
             project_root = os.path.dirname(os.path.dirname(current_file))
             docs_path = os.path.join(project_root, "docs")
-            print(f"📁 使用文档目录: {docs_path}")
+            logger.info(f"📁 使用文档目录: {docs_path}")
             self.build_from_directory(docs_path)
         
         return self

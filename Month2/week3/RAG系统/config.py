@@ -28,3 +28,7 @@ FUZZY_QUESTIONS = ["那个", "这个", "那个是什么", "这个是什么"]
 # 多轮对话配置
 FOLLOWUP_WORDS = ["它", "这个", "那个", "其"]
 OMIT_STARTS = ["怎么", "如何", "为什么", "有什么", "哪些"]
+
+LOG_LEVEL = "INFO"              # DEBUG, INFO, WARN, ERROR
+LOG_FILE = "rag_system.log"     # 日志文件路径
+LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

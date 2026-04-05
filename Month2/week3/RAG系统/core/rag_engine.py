@@ -6,6 +6,7 @@ RAG核心引擎 - 带检索溯源
 from config import DEFAULT_MAX_LENGTH, DEFAULT_TEMPERATURE
 from utils.chat_session import get_session, clear_session
 from core.knowledge_base import KnowledgeBase
+from utils.logger import logger
 
 class RAGEngine:
     """RAG引擎（带溯源）"""
