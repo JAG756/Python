@@ -26,20 +26,6 @@ class BatchVectorizer:
             encode_kwargs={'normalize_embeddings': True}
         )
     
-    def batch_vectorize(self, chunks: List[Document], batch_size: int = 100):
-        """批量向量化"""
-        total = len(chunks)
-        logger.info(f"🚀 开始批量向量化，共 {total} 个块，批次大小 {batch_size}")
-        
-        for i in range(0, total, batch_size):
-            batch = chunks[i:i+batch_size]
-            logger.info(f"  处理批次 {i//batch_size + 1}/{(total-1)//batch_size + 1}")
-            
-            # 这里可以根据需要批量处理
-            # 目前 Chroma 内部已经支持批量
-        
-        logger.info(f"✅ 批量向量化完成")
-    
     def create_vector_store(self, chunks: List[Document], persist: bool = True):
         """创建向量数据库"""
         if self.embedding is None:

@@ -23,22 +23,42 @@ class ModelLoader:
         logger.info(f"加载模型：{self.model_name}")
         logger.info("使用本地缓存，不联网...")
         
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            self.model_name, 
-            trust_remote_code=True,
-            local_files_only=True  # 关键：只使用本地缓存
-        )
+        try:
+            self.tokenizer = AutoTokenizer.from_pretrained(
+                self.model_name, 
+                trust_remote_code=True,
+                local_files_only=True
+            )
+        except Exception as e:
+            logger.error(f"Tokenizer 加载失败: {e}")
+            raise RuntimeError(
+                f"模型 {self.model_name} 的 tokenizer 加载失败。\n"
+                "请确认：\n"
+                "1. 模型已下载到本地缓存目录\n"
+                "2. 缓存目录路径正确\n"
+                "3. 磁盘空间充足"
+            ) from e
         
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
         
-        self.model = AutoModelForCausalLM.from_pretrained(
-            self.model_name,
-            torch_dtype=torch.float16 if self.device == "cuda" else torch.float32,
-            device_map="auto" if self.device == "cuda" else None,
-            trust_remote_code=True,
-            local_files_only=True  # 关键：只使用本地缓存
-        ).eval()
+        try:
+            self.model = AutoModelForCausalLM.from_pretrained(
+                self.model_name,
+                torch_dtype=torch.float16 if self.device == "cuda" else torch.float32,
+                device_map="auto" if self.device == "cuda" else None,
+                trust_remote_code=True,
+                local_files_only=True
+            ).eval()
+        except Exception as e:
+            logger.error(f"模型加载失败: {e}")
+            raise RuntimeError(
+                f"模型 {self.model_name} 加载失败。\n"
+                "可能原因：\n"
+                "1. 模型文件不完整，请重新下载\n"
+                "2. 内存/显存不足\n"
+                "3. 模型版本与代码不兼容"
+            ) from e
         
         if self.device == "cpu":
             self.model = self.model.to(self.device)

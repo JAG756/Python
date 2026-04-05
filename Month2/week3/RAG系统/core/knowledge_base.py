@@ -85,25 +85,23 @@ class KnowledgeBase:
         return self
     
     def search_with_source(self, question: str) -> Optional[Dict]:
-        """
-        检索并返回内容和来源信息
-        返回: {"content": 原文, "source": 文件名, "page": 页码, "score": 相似度}
-        """
         if self.vectordb is None:
+            logger.warning("向量库未初始化，无法检索")
             return None
-
-        # 恢复为只检索 Top 1
-        docs = self.vectordb.similarity_search_with_score(question, k=self.top_k)
-
+        
+        try:
+            docs = self.vectordb.similarity_search_with_score(question, k=self.top_k)
+        except Exception as e:
+            logger.error(f"检索失败: {e}")
+            return None
+        
         if not docs or docs[0][1] > self.threshold:
             return None
-
+        
         doc = docs[0][0]
         score = docs[0][1]
-
-        # 获取元数据
         metadata = doc.metadata if hasattr(doc, 'metadata') else {}
-
+        
         return {
             "content": doc.page_content,
             "source": metadata.get("source", "未知来源"),
@@ -121,24 +119,39 @@ class KnowledgeBase:
         return None, None
     
     def load_persisted(self):
-        """加载已存在的向量库"""
-        logger.info("📂 加载已有向量库...")
+        """加载已存在的向量库，失败则自动重建"""
+        logger.info("加载已有向量库...")
         
-        self.batch_vectorizer.init_embedding(self.device)
-        self.vectordb = self.batch_vectorizer.load_vector_store()
-        
-        if self.vectordb:
-            logger.info("✅ 向量库加载成功")
-        else:
-            logger.warning("⚠️ 向量库不存在，正在从 docs 目录构建...")
-            import os
+        try:
+            self.batch_vectorizer.init_embedding(self.device)
+            self.vectordb = self.batch_vectorizer.load_vector_store()
+            
+            if self.vectordb:
+                logger.info("向量库加载成功")
+                return self
+            else:
+                raise FileNotFoundError("向量库目录存在但无法加载")
+        except Exception as e:
+            logger.warning(f"向量库加载失败: {e}，将尝试重建")
+            
+            # 删除可能损坏的向量库文件
+            import shutil
+            if os.path.exists(self.vector_db_path):
+                shutil.rmtree(self.vector_db_path)
+                logger.info(f"已删除损坏的向量库: {self.vector_db_path}")
+            
+            # 从 docs 目录重建
             current_file = os.path.abspath(__file__)
             project_root = os.path.dirname(os.path.dirname(current_file))
             docs_path = os.path.join(project_root, "docs")
-            logger.info(f"📁 使用文档目录: {docs_path}")
-            self.build_from_directory(docs_path)
-        
-        return self
+            if os.path.exists(docs_path) and any(f.endswith(('.pdf', '.txt')) for f in os.listdir(docs_path)):
+                logger.info(f"从文档目录重建: {docs_path}")
+                self.build_from_directory(docs_path)
+            else:
+                logger.info("无可用文档，使用内置知识库")
+                self.build_from_strings(KNOWLEDGE_BASE)
+            
+            return self
     
     def get_stats(self):
         """获取知识库统计"""

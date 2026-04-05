@@ -8,6 +8,7 @@ from typing import List
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
+from utils.logger import logger
 
 class DocumentLoader:
     """文档加载器（带元数据）"""
@@ -40,10 +41,10 @@ class DocumentLoader:
                     "type": "pdf"
                 }
             
-            print(f"📄 加载 PDF: {os.path.basename(pdf_path)}，共 {len(documents)} 页")
+            logger.info(f"📄 加载 PDF: {os.path.basename(pdf_path)}，共 {len(documents)} 页")
             return documents
         except Exception as e:
-            print(f"❌ 加载 PDF 失败: {e}")
+            logger.error(f"❌ 加载 PDF 失败: {e}")
             return []
     
     def load_text(self, text_path: str) -> List[Document]:
@@ -60,10 +61,10 @@ class DocumentLoader:
                     "type": "text"
                 }
             
-            print(f"📄 加载文本: {os.path.basename(text_path)}")
+            logger.info(f"📄 加载文本: {os.path.basename(text_path)}")
             return documents
         except Exception as e:
-            print(f"❌ 加载文本失败: {e}")
+            logger.error(f"❌ 加载文本失败: {e}")
             return []
     
     def load_from_string(self, content: str, source: str = "内置知识库") -> List[Document]:
@@ -79,35 +80,34 @@ class DocumentLoader:
         return [doc]
     
     def load_directory(self, directory_path: str, extensions: List[str] = [".pdf", ".txt"]) -> List[Document]:
-        """批量加载目录下的所有文档"""
         all_documents = []
-        
         if not os.path.exists(directory_path):
-            print(f"❌ 目录不存在: {directory_path}")
+            logger.error(f"目录不存在: {directory_path}")
             return []
         
-        pdf_count = 0
-        txt_count = 0
-        
+        pdf_count = txt_count = 0
         for filename in os.listdir(directory_path):
             file_path = os.path.join(directory_path, filename)
             ext = os.path.splitext(filename)[1].lower()
-            
-            if ext == ".pdf" and ".pdf" in extensions:
-                docs = self.load_pdf(file_path)
-                all_documents.extend(docs)
-                pdf_count += 1
-            elif ext == ".txt" and ".txt" in extensions:
-                docs = self.load_text(file_path)
-                all_documents.extend(docs)
-                txt_count += 1
+            try:
+                if ext == ".pdf" and ".pdf" in extensions:
+                    docs = self.load_pdf(file_path)
+                    all_documents.extend(docs)
+                    pdf_count += 1
+                elif ext == ".txt" and ".txt" in extensions:
+                    docs = self.load_text(file_path)
+                    all_documents.extend(docs)
+                    txt_count += 1
+            except Exception as e:
+                logger.error(f"跳过无法加载的文件 {filename}: {e}")
+                continue
         
-        print(f"✅ 批量加载完成: {pdf_count} 个 PDF, {txt_count} 个 TXT, 共 {len(all_documents)} 页")
+        logger.info(f"批量加载完成: {pdf_count} 个 PDF, {txt_count} 个 TXT, 共 {len(all_documents)} 页")
         return all_documents
     
     def split_documents(self, documents: List[Document]) -> List[Document]:
         """分块处理，保留元数据"""
         chunks = self.splitter.split_documents(documents)
-        print(f"✂️ 文档分块: {len(documents)} 页 → {len(chunks)} 个块")
-        print(f"   块大小: {self.chunk_size} 字符, 重叠: {self.chunk_overlap} 字符")
+        logger.info(f"✂️ 文档分块: {len(documents)} 页 → {len(chunks)} 个块")
+        logger.info(f"   块大小: {self.chunk_size} 字符, 重叠: {self.chunk_overlap} 字符")
         return chunks

@@ -13,3 +13,162 @@
 2026-04-05 14:34:07,327 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
 2026-04-05 14:34:08,807 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
 2026-04-05 14:34:11,086 - httpx - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-05 15:08:50,346 - RAG_System - INFO - 使用设备：cuda
+2026-04-05 15:08:50,347 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-05 15:08:50,347 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-05 15:08:51,566 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen1.5-1.8B-Chat "HTTP/1.1 200 OK"
+2026-04-05 15:08:53,865 - RAG_System - INFO - 模型加载完成
+2026-04-05 15:08:53,865 - RAG_System - INFO - 从目录构建知识库: ./docs/
+2026-04-05 15:08:53,866 - RAG_System - WARNING - 目录不存在: ./docs/
+2026-04-05 15:08:53,866 - RAG_System - INFO - 使用默认知识库
+2026-04-05 15:08:53,866 - RAG_System - INFO - 从字符串构建知识库...
+2026-04-05 15:15:59,472 - RAG_System - INFO - 使用设备：cuda
+2026-04-05 15:15:59,472 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-05 15:15:59,472 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-05 15:16:00,310 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen1.5-1.8B-Chat "HTTP/1.1 200 OK"
+2026-04-05 15:16:02,078 - RAG_System - INFO - 模型加载完成
+2026-04-05 15:16:02,078 - RAG_System - INFO - 从目录构建知识库: ./docs/
+2026-04-05 15:16:02,078 - RAG_System - WARNING - 目录不存在: ./docs/
+2026-04-05 15:16:02,079 - RAG_System - INFO - 使用默认知识库
+2026-04-05 15:16:02,079 - RAG_System - INFO - 从字符串构建知识库...
+2026-04-05 15:16:02,081 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-05 15:16:02,640 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/moka-ai/m3e-base/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-05 15:16:02,641 - huggingface_hub.utils._http - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-04-05 15:16:02,970 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/moka-ai/m3e-base/764b537a0e50e5c7d64db883f2d2e051cbe3c64c/modules.json "HTTP/1.1 200 OK"
+2026-04-05 15:16:03,340 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/moka-ai/m3e-base/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-04-05 15:16:03,716 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/moka-ai/m3e-base/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-04-05 15:16:04,052 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/moka-ai/m3e-base/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-05 15:16:04,259 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/moka-ai/m3e-base/764b537a0e50e5c7d64db883f2d2e051cbe3c64c/README.md "HTTP/1.1 200 OK"
+2026-04-05 15:16:04,790 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/moka-ai/m3e-base/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-05 15:16:05,080 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/moka-ai/m3e-base/764b537a0e50e5c7d64db883f2d2e051cbe3c64c/modules.json "HTTP/1.1 200 OK"
+2026-04-05 15:16:05,490 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/moka-ai/m3e-base/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-05 15:16:05,681 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/moka-ai/m3e-base/764b537a0e50e5c7d64db883f2d2e051cbe3c64c/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-05 15:16:06,143 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/moka-ai/m3e-base/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-05 15:16:06,688 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/moka-ai/m3e-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-05 15:16:06,911 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/moka-ai/m3e-base/764b537a0e50e5c7d64db883f2d2e051cbe3c64c/config.json "HTTP/1.1 200 OK"
+2026-04-05 15:16:07,515 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/moka-ai/m3e-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-05 15:16:07,919 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/moka-ai/m3e-base/764b537a0e50e5c7d64db883f2d2e051cbe3c64c/config.json "HTTP/1.1 200 OK"
+2026-04-05 15:16:08,340 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/moka-ai/m3e-base/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-05 15:16:08,479 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/moka-ai/m3e-base/764b537a0e50e5c7d64db883f2d2e051cbe3c64c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-05 15:16:08,819 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/moka-ai/m3e-base/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-05 15:16:09,260 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/moka-ai/m3e-base/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-05 15:16:09,769 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/moka-ai/m3e-base/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-05 15:16:10,010 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/moka-ai/m3e-base/764b537a0e50e5c7d64db883f2d2e051cbe3c64c/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-05 15:16:10,586 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/moka-ai/m3e-base "HTTP/1.1 200 OK"
+2026-04-05 15:16:12,200 - RAG_System - INFO - 💾 向量库已保存到: ./vector_db
+2026-04-05 15:16:12,201 - RAG_System - INFO - 知识库构建完成，共 4 条知识
+2026-04-05 15:22:22,590 - RAG_System - INFO - 加载模型中...
+2026-04-05 15:22:22,606 - RAG_System - INFO - 使用设备：cuda
+2026-04-05 15:22:22,606 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-05 15:22:22,606 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-05 15:22:25,284 - RAG_System - INFO - 模型加载完成
+2026-04-05 15:22:25,284 - RAG_System - INFO - 加载已有向量库...
+2026-04-05 15:22:25,287 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-05 15:22:26,612 - RAG_System - INFO - 📂 加载已有向量库: ./vector_db
+2026-04-05 15:22:26,669 - RAG_System - INFO - 向量库加载成功
+2026-04-05 15:22:26,670 - RAG_System - INFO - ✅ 从已有向量库加载成功
+2026-04-05 15:22:26,670 - RAG_System - INFO - 创建 RAG 引擎...
+2026-04-05 15:22:26,670 - RAG_System - INFO - 启动界面...
+2026-04-05 15:22:27,586 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 502 Bad Gateway"
+2026-04-05 15:22:29,081 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-05 15:23:02,368 - RAG_System - INFO - 加载模型中...
+2026-04-05 15:23:02,385 - RAG_System - INFO - 使用设备：cuda
+2026-04-05 15:23:02,386 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-05 15:23:02,386 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-05 15:23:04,307 - RAG_System - INFO - 模型加载完成
+2026-04-05 15:23:04,308 - RAG_System - INFO - 加载已有向量库...
+2026-04-05 15:23:04,309 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-05 15:23:05,435 - RAG_System - INFO - 📂 加载已有向量库: ./vector_db
+2026-04-05 15:23:05,550 - RAG_System - INFO - 向量库加载成功
+2026-04-05 15:23:05,550 - RAG_System - INFO - ✅ 从已有向量库加载成功
+2026-04-05 15:23:05,550 - RAG_System - INFO - 创建 RAG 引擎...
+2026-04-05 15:23:05,551 - RAG_System - INFO - 启动界面...
+2026-04-05 15:23:06,405 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-05 15:23:07,874 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-05 15:23:09,935 - httpx - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-05 15:23:27,646 - RAG_System - INFO - 问题: 什么是整数 -> 检索到来源: 内置知识库_2 第1页 相似度:0.68
+2026-04-05 15:29:31,309 - RAG_System - INFO - 加载模型中...
+2026-04-05 15:29:31,327 - RAG_System - INFO - 使用设备：cuda
+2026-04-05 15:29:31,327 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-05 15:29:31,327 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-05 15:29:33,089 - RAG_System - INFO - 模型加载完成
+2026-04-05 15:29:33,090 - RAG_System - INFO - 加载已有向量库...
+2026-04-05 15:29:33,091 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-05 15:29:33,421 - RAG_System - WARNING - ⚠️ 向量库不存在: ./vector_db
+2026-04-05 15:29:33,422 - RAG_System - WARNING - 向量库加载失败: 向量库目录存在但无法加载，将尝试重建
+2026-04-05 15:29:33,422 - RAG_System - INFO - 从文档目录重建: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-05 15:29:33,422 - RAG_System - INFO - 从目录构建知识库: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-05 15:29:33,422 - RAG_System - INFO - 找到 1 个 PDF 文件，0 个 TXT 文件
+2026-04-05 15:29:33,748 - RAG_System - WARNING - ⚠️ 未找到已有向量库，开始构建...
+2026-04-05 15:29:33,748 - RAG_System - INFO - 从字符串构建知识库...
+2026-04-05 15:29:33,750 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-05 15:29:34,808 - RAG_System - INFO - 💾 向量库已保存到: ./vector_db
+2026-04-05 15:29:34,808 - RAG_System - INFO - 知识库构建完成，共 4 条知识
+2026-04-05 15:29:34,808 - RAG_System - INFO - 创建 RAG 引擎...
+2026-04-05 15:29:34,808 - RAG_System - INFO - 启动界面...
+2026-04-05 15:29:35,688 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-05 15:29:37,090 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-05 15:29:39,160 - httpx - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-05 15:30:54,424 - RAG_System - INFO - 问题: 什么是整数 -> 检索到来源: 内置知识库_2 第1页 相似度:0.68
+2026-04-05 15:31:13,023 - RAG_System - INFO - 问题: 什么是张量 -> 检索到来源: 内置知识库_1 第1页 相似度:0.60
+2026-04-05 15:31:28,390 - RAG_System - INFO - 问题: 什么是整数 -> 检索到来源: 内置知识库_2 第1页 相似度:0.68
+2026-04-05 15:31:38,048 - RAG_System - INFO - 问题: 什么是张量 -> 检索到来源: 内置知识库_1 第1页 相似度:0.60
+2026-04-05 15:38:40,958 - RAG_System - INFO - 加载模型中...
+2026-04-05 15:38:40,976 - RAG_System - INFO - 使用设备：cuda
+2026-04-05 15:38:40,976 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-05 15:38:40,976 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-05 15:38:42,570 - RAG_System - INFO - 模型加载完成
+2026-04-05 15:38:42,570 - RAG_System - INFO - 加载已有向量库...
+2026-04-05 15:38:42,572 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-05 15:38:42,860 - RAG_System - WARNING - ⚠️ 向量库不存在: ./vector_db
+2026-04-05 15:38:42,861 - RAG_System - WARNING - 向量库加载失败: 向量库目录存在但无法加载，将尝试重建
+2026-04-05 15:38:42,861 - RAG_System - INFO - 从文档目录重建: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-05 15:38:42,861 - RAG_System - INFO - 从目录构建知识库: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-05 15:38:42,861 - RAG_System - INFO - 找到 1 个 PDF 文件，0 个 TXT 文件
+2026-04-05 15:38:43,117 - RAG_System - WARNING - ⚠️ 未找到已有向量库，开始构建...
+2026-04-05 15:38:43,117 - RAG_System - INFO - 从字符串构建知识库...
+2026-04-05 15:38:43,119 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-05 15:38:43,988 - RAG_System - INFO - 💾 向量库已保存到: ./vector_db
+2026-04-05 15:38:43,988 - RAG_System - INFO - 知识库构建完成，共 4 条知识
+2026-04-05 15:38:43,988 - RAG_System - INFO - 创建 RAG 引擎...
+2026-04-05 15:38:43,988 - RAG_System - INFO - 启动界面...
+2026-04-05 15:38:44,850 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-05 15:38:46,264 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-05 15:38:48,333 - httpx - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-05 15:39:31,459 - RAG_System - INFO - 问题: 什么是整数 -> 检索到来源: 内置知识库_2 第1页 相似度:0.68
+2026-04-05 15:39:46,424 - RAG_System - WARNING - 问题过长，已截断至500字符
+2026-04-05 15:39:46,604 - RAG_System - INFO - 问题: PS E:\Pythod> & E:/anaconda/python.exe e:/Pythod/Month2/week3/RAG系统/main.py
+2026-04-05 15:38:40,958 - RAG_System - INFO - 加载模型中...
+2026-04-05 15:38:40,976 - RAG_System - INFO - 使用设备：cuda
+2026-04-05 15:38:40,976 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-05 15:38:40,976 - RAG_System - INFO - 使用本地缓存，不联网...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights: 100%|████████████████████████████████████████████████████████████████████████████████████| 291/291 [00:00<00:00, -> 检索到来源: 内置知识库_1 第1页 相似度:0.49
+2026-04-05 15:44:38,127 - RAG_System - INFO - ============================================================
+2026-04-05 15:44:38,128 - RAG_System - INFO - 📚 批量文档处理工具
+2026-04-05 15:44:38,128 - RAG_System - INFO - ============================================================
+2026-04-05 15:44:38,128 - RAG_System - INFO - 1. 处理文档（构建向量库）
+2026-04-05 15:44:38,128 - RAG_System - INFO - 2. 清空向量库
+2026-04-05 15:44:46,678 - RAG_System - INFO - ✅ 已清空: ./vector_db
+2026-04-05 15:44:59,157 - RAG_System - INFO - 加载模型中...
+2026-04-05 15:44:59,174 - RAG_System - INFO - 使用设备：cuda
+2026-04-05 15:44:59,175 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-05 15:44:59,175 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-05 15:45:00,907 - RAG_System - INFO - 模型加载完成
+2026-04-05 15:45:00,907 - RAG_System - INFO - 加载已有向量库...
+2026-04-05 15:45:00,909 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-05 15:45:01,379 - RAG_System - WARNING - ⚠️ 向量库不存在: ./vector_db
+2026-04-05 15:45:01,379 - RAG_System - WARNING - 向量库加载失败: 向量库目录存在但无法加载，将尝试重建
+2026-04-05 15:45:01,380 - RAG_System - INFO - 从文档目录重建: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-05 15:45:01,380 - RAG_System - INFO - 从目录构建知识库: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-05 15:45:01,380 - RAG_System - INFO - 找到 1 个 PDF 文件，0 个 TXT 文件
+2026-04-05 15:45:01,643 - RAG_System - INFO - 📄 加载 PDF: Python 与 PyTorch 基础数据类型及核心知识点.pdf，共 3 页
+2026-04-05 15:45:01,643 - RAG_System - INFO - 批量加载完成: 1 个 PDF, 0 个 TXT, 共 3 页
+2026-04-05 15:45:01,643 - RAG_System - INFO - ✂️ 文档分块: 3 页 → 17 个块
+2026-04-05 15:45:01,644 - RAG_System - INFO -    块大小: 200 字符, 重叠: 30 字符
+2026-04-05 15:45:01,645 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-05 15:45:02,918 - RAG_System - INFO - 💾 向量库已保存到: ./vector_db
+2026-04-05 15:45:02,919 - RAG_System - INFO - 知识库构建完成，共 17 个文档块
+2026-04-05 15:45:02,919 - RAG_System - INFO - ✅ 从已有向量库加载成功
+2026-04-05 15:45:02,919 - RAG_System - INFO - 创建 RAG 引擎...
+2026-04-05 15:45:02,919 - RAG_System - INFO - 启动界面...
