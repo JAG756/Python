@@ -172,3 +172,7 @@ Loading weights: 100%|███████████████████�
 2026-04-05 15:45:02,919 - RAG_System - INFO - ✅ 从已有向量库加载成功
 2026-04-05 15:45:02,919 - RAG_System - INFO - 创建 RAG 引擎...
 2026-04-05 15:45:02,919 - RAG_System - INFO - 启动界面...
+2026-04-05 15:45:03,725 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-05 15:45:05,239 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-05 15:45:07,320 - httpx - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-05 15:45:32,104 - RAG_System - INFO - 问题: 什么是整数 -> 检索到来源: Python 与 PyTorch 基础数据类型及核心知识点.pdf 第1页 相似度:0.45
