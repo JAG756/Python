@@ -44,6 +44,24 @@ class BatchVectorizer:
         
         return self.vectordb
     
+    def create_vector_store_with_ids(self, chunks: List[Document], ids: List[str], persist: bool = True):
+        """创建向量数据库并指定每个文档的自定义ID"""
+        if self.embedding is None:
+            raise ValueError("请先调用 init_embedding()")
+        
+        # 创建空库（不立即添加文档）
+        self.vectordb = Chroma(
+            embedding_function=self.embedding,
+            persist_directory=self.vector_db_path if persist else None
+        )
+        # 批量添加文档并传入自定义ID
+        self.vectordb.add_documents(documents=chunks, ids=ids)
+        
+        if persist:
+            logger.info(f"💾 向量库已保存到: {self.vector_db_path}，共 {len(chunks)} 个块")
+        
+        return self.vectordb
+
     def load_vector_store(self):
         """加载已存在的向量库"""
         if self.embedding is None:
@@ -67,7 +85,8 @@ class BatchVectorizer:
             self.vectordb.add_documents(documents, ids=ids)
         else:
             self.vectordb.add_documents(documents)
-        logger.info(f"➕ 增量添加 {len(documents)} 个文档")
+            self.vectordb.persist()  # 新增：强制持久化
+            logger.info(f"➕ 增量添加 {len(documents)} 个文档")
     
     def delete_collection(self):
         """删除向量库"""
@@ -77,11 +96,17 @@ class BatchVectorizer:
             logger.info(f"🗑️ 已删除向量库: {self.vector_db_path}")
 
     def delete_by_ids(self, ids: List[str]):
-        """根据文档ID列表删除向量库中的条目"""
         if self.vectordb is None:
             raise ValueError("向量库未初始化")
-        self.vectordb.delete(ids)
-        logger.info(f"🗑️ 已删除 {len(ids)} 个文档块")
+        # 新增：过滤不存在的ID
+        existing_ids = set(self.vectordb.get()['ids'])
+        valid_ids = [i for i in ids if i in existing_ids]
+        if valid_ids:
+            self.vectordb.delete(valid_ids)
+            self.vectordb.persist()  # 新增：持久化删除操作
+            logger.info(f"🗑️ 已删除 {len(valid_ids)} 个文档块")
+        else:
+            logger.warning("无有效ID可删除")
     
     def get_stats(self) -> dict:
         """获取向量库统计信息"""

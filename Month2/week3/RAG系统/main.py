@@ -33,14 +33,19 @@ def main():
     # 创建知识库对象
     kb = KnowledgeBase(model.device, vector_db_path="./vector_db")
 
+    # ========== 新增：获取 docs 目录的绝对路径 ==========
+    docs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs")
+    logger.info(f"docs 目录绝对路径: {docs_dir}")
+    # =================================================
+
     # 尝试加载已有向量库，若失败则重建
     try:
         kb.load_persisted()
         logger.info("✅ 从已有向量库加载成功")
     except Exception as e:
         logger.warning(f"⚠️ 加载已有向量库失败: {e}，开始构建...")
-        if os.path.exists("./docs"):
-            kb.build_from_directory("./docs")
+        if os.path.exists("docs_dir"):
+            kb.build_from_directory("docs_dir")
         else:
             from config import KNOWLEDGE_BASE
             kb.build_from_strings(KNOWLEDGE_BASE)
@@ -48,7 +53,7 @@ def main():
     # 启动后台自动更新线程（每隔 60 秒检查 docs 目录变化）
     updater_thread = threading.Thread(
         target=auto_update_loop,
-        args=(kb, "./docs", 60),
+        args=(kb, docs_dir, 60),
         daemon=True
     )
     updater_thread.start()

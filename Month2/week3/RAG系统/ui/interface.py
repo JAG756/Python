@@ -2,7 +2,7 @@
 """
 极简版企业级界面 - 带溯源显示
 """
-
+import os
 import gradio as gr
 from config import DEFAULT_MAX_LENGTH, DEFAULT_TEMPERATURE
 from utils.logger import logger   # 确保可以导入
@@ -77,7 +77,11 @@ def create_interface(rag_engine):
         
         def update_kb():
             try:
-                rag_engine.kb.incremental_update("./docs")
+                # 获取当前文件（interface.py）所在目录，然后向上到项目根目录
+                current_dir = os.path.dirname(os.path.abspath(__file__))
+                project_root = os.path.dirname(current_dir)
+                docs_dir = os.path.join(project_root, "docs")
+                rag_engine.kb.incremental_update(docs_dir)
                 return "✅ 知识库已更新"
             except Exception as e:
                 return f"❌ 失败: {e}"
