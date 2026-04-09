@@ -4,12 +4,17 @@
 MODEL_NAME = "Qwen/Qwen1.5-1.8B-Chat"
 
 # 检索配置
-SIMILARITY_THRESHOLD = 1.0      # 原来可能是1.2，改为1.0更严格
-TOP_K = 1                        # 返回最相似的一个块
+SIMILARITY_THRESHOLD = 0.5      # 相似度阈值（低于此值认为不相关）
+TOP_K = 3                        # 检索返回的最相似块数量
 
 # 生成配置
-DEFAULT_MAX_LENGTH = 200
-DEFAULT_TEMPERATURE = 0.3
+USE_GENERATION =  True           # True: 让模型基于检索内容生成答案；False: 直接返回原文
+DEFAULT_MAX_LENGTH = 100         # 生成的最大 token 数
+DEFAULT_TEMPERATURE = 0.1        # 生成温度（越低越保守）
+
+# 文档分块配置
+CHUNK_SIZE = 500        # 每个块字符数
+CHUNK_OVERLAP = 50      # 块间重叠字符数
 
 # 默认知识库（当docs文件夹为空时使用）
 KNOWLEDGE_BASE = [
@@ -29,6 +34,6 @@ FUZZY_QUESTIONS = ["那个", "这个", "那个是什么", "这个是什么"]
 FOLLOWUP_WORDS = ["它", "这个", "那个", "其"]
 OMIT_STARTS = ["怎么", "如何", "为什么", "有什么", "哪些"]
 
-LOG_LEVEL = "INFO"              # DEBUG, INFO, WARN, ERROR
-LOG_FILE = "rag_system.log"     # 日志文件路径
+LOG_LEVEL = "INFO"
+LOG_FILE = "rag_system.log"
 LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

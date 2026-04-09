@@ -5,6 +5,7 @@
 
 import os
 from typing import List
+from config import CHUNK_SIZE, CHUNK_OVERLAP
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
@@ -13,7 +14,7 @@ from utils.logger import logger
 class DocumentLoader:
     """文档加载器（带元数据）"""
     
-    def __init__(self, chunk_size=200, chunk_overlap=30):
+    def __init__(self, chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP):
         """
         chunk_size: 每个块的大小（字符数），建议 150-200
         chunk_overlap: 块之间的重叠字符数
@@ -66,6 +67,23 @@ class DocumentLoader:
         except Exception as e:
             logger.error(f"❌ 加载文本失败: {e}")
             return []
+
+    def load_md(self, md_path: str) -> List[Document]:
+        try:
+            loader = TextLoader(md_path, encoding='utf-8')
+            documents = loader.load()
+            for doc in documents:
+                doc.metadata = {
+                    "source": os.path.basename(md_path),
+                    "source_path": md_path,
+                    "page": 1,
+                    "type": "markdown"
+                }
+            logger.info(f"📄 加载 Markdown: {os.path.basename(md_path)}")
+            return documents
+        except Exception as e:
+            logger.error(f"❌ 加载 Markdown 失败: {e}")
+            return []
     
     def load_from_string(self, content: str, source: str = "内置知识库") -> List[Document]:
         """从字符串加载"""
@@ -79,29 +97,35 @@ class DocumentLoader:
         )
         return [doc]
     
-    def load_directory(self, directory_path: str, extensions: List[str] = [".pdf", ".txt"]) -> List[Document]:
+    def load_directory(self, directory_path: str, extensions: List[str] = [".pdf", ".txt", ".md"]) -> List[Document]:
         all_documents = []
         if not os.path.exists(directory_path):
             logger.error(f"目录不存在: {directory_path}")
             return []
-        
+
         pdf_count = txt_count = 0
-        for filename in os.listdir(directory_path):
-            file_path = os.path.join(directory_path, filename)
-            ext = os.path.splitext(filename)[1].lower()
-            try:
-                if ext == ".pdf" and ".pdf" in extensions:
-                    docs = self.load_pdf(file_path)
-                    all_documents.extend(docs)
-                    pdf_count += 1
-                elif ext == ".txt" and ".txt" in extensions:
-                    docs = self.load_text(file_path)
-                    all_documents.extend(docs)
-                    txt_count += 1
-            except Exception as e:
-                logger.error(f"跳过无法加载的文件 {filename}: {e}")
-                continue
-        
+        # 使用 os.walk 递归遍历所有子文件夹
+        for root, dirs, files in os.walk(directory_path):
+            for filename in files:
+                file_path = os.path.join(root, filename)
+                ext = os.path.splitext(filename)[1].lower()
+                try:
+                    if ext == ".pdf" and ".pdf" in extensions:
+                        docs = self.load_pdf(file_path)
+                        all_documents.extend(docs)
+                        pdf_count += 1
+                    elif ext == ".txt" and ".txt" in extensions:
+                        docs = self.load_text(file_path)
+                        all_documents.extend(docs)
+                        txt_count += 1
+                    elif ext == ".md" and ".md" in extensions:
+                        docs = self.load_md(file_path)
+                        all_documents.extend(docs)
+                        txt_count += 1
+                except Exception as e:
+                    logger.error(f"跳过无法加载的文件 {filename}: {e}")
+                    continue
+
         logger.info(f"批量加载完成: {pdf_count} 个 PDF, {txt_count} 个 TXT, 共 {len(all_documents)} 页")
         return all_documents
     

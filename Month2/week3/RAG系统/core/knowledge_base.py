@@ -4,6 +4,8 @@
 """
 
 import os
+import json
+import hashlib
 from typing import List, Dict, Optional, Tuple
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Chroma
@@ -16,7 +18,7 @@ from utils.logger import logger
 
 class KnowledgeBase:
     """知识库管理器（带溯源）"""
-    
+    # 初始化知识库，支持从字符串列表或目录构建，并提供检索功能
     def __init__(self, device: str, vector_db_path: str = "./vector_db"):
         self.device = device
         self.vectordb = None
@@ -25,6 +27,7 @@ class KnowledgeBase:
         self.vector_db_path = vector_db_path
         self.doc_loader = DocumentLoader()
         self.batch_vectorizer = BatchVectorizer(vector_db_path)
+    #初始化
     
     def build_from_strings(self, texts: List[str]):
         """从字符串列表构建知识库"""
@@ -45,13 +48,15 @@ class KnowledgeBase:
         chunks = self.doc_loader.split_documents(documents)
         
         self.batch_vectorizer.init_embedding(self.device)
+        # 创建向量库
         self.vectordb = self.batch_vectorizer.create_vector_store(chunks)
+        # 将字符串列表转换为 Document 对象，添加元数据（来源、页码、类型等），然后切分成更小的块。接着初始化向量化模型，并用 Chroma 创建向量数据库。
         
         logger.info(f"知识库构建完成，共 {len(texts)} 条知识")
         return self
     
     def build_from_directory(self, directory_path: str):
-        """从目录批量构建知识库"""
+        """从目录批量构建知识库（递归支持子文件夹）"""
         logger.info(f"从目录构建知识库: {directory_path}")
         
         if not os.path.exists(directory_path):
@@ -59,27 +64,21 @@ class KnowledgeBase:
             logger.info("使用默认知识库")
             return self.build_from_strings(KNOWLEDGE_BASE)
         
-        files = os.listdir(directory_path)
-        pdf_files = [f for f in files if f.endswith('.pdf')]
-        txt_files = [f for f in files if f.endswith('.txt')]
-        
-        if not pdf_files and not txt_files:
-            logger.warning(f"目录中没有 PDF 或 TXT 文件: {directory_path}")
-            logger.info("使用默认知识库")
-            return self.build_from_strings(KNOWLEDGE_BASE)
-        
-        logger.info(f"找到 {len(pdf_files)} 个 PDF 文件，{len(txt_files)} 个 TXT 文件")
-        
+        # 直接加载（load_directory 已支持递归）
         documents = self.doc_loader.load_directory(directory_path)
+        #递归加载目录下的所有文档
         
         if not documents:
             logger.warning("没有加载到任何文档，使用默认知识库")
             return self.build_from_strings(KNOWLEDGE_BASE)
         
         chunks = self.doc_loader.split_documents(documents)
+        #把每个文档切分成更小的块，方便向量化和检索
         
         self.batch_vectorizer.init_embedding(self.device)
+        #加载向量化模型
         self.vectordb = self.batch_vectorizer.create_vector_store(chunks)
+        #用Chroma创建向量数据库，并保存到磁盘
         
         logger.info(f"知识库构建完成，共 {len(chunks)} 个文档块")
         return self
@@ -108,7 +107,8 @@ class KnowledgeBase:
             "source_path": metadata.get("source_path", ""),
             "page": metadata.get("page", "未知"),
             "doc_type": metadata.get("type", "unknown"),
-            "score": score
+            "score": score,
+            "is_relevant": score < self.threshold   # 注意：score 越小越相关
         }
     
     def search(self, question: str) -> Tuple[Optional[str], Optional[float]]:
@@ -140,11 +140,20 @@ class KnowledgeBase:
                 shutil.rmtree(self.vector_db_path)
                 logger.info(f"已删除损坏的向量库: {self.vector_db_path}")
             
-            # 从 docs 目录重建
+            # 从 docs 目录重建（递归检查是否有文档）
             current_file = os.path.abspath(__file__)
             project_root = os.path.dirname(os.path.dirname(current_file))
             docs_path = os.path.join(project_root, "docs")
-            if os.path.exists(docs_path) and any(f.endswith(('.pdf', '.txt')) for f in os.listdir(docs_path)):
+            
+            # 递归检查 docs 目录下是否有任何 PDF 或 TXT 文件
+            has_docs = False
+            if os.path.exists(docs_path):
+                for root, dirs, files in os.walk(docs_path):
+                    if any(f.endswith(('.pdf', '.txt')) for f in files):
+                        has_docs = True
+                        break
+            
+            if has_docs:
                 logger.info(f"从文档目录重建: {docs_path}")
                 self.build_from_directory(docs_path)
             else:
@@ -153,6 +162,145 @@ class KnowledgeBase:
             
             return self
     
+    def _get_file_state_path(self):
+        """状态文件路径，放在向量库目录旁边"""
+        return os.path.join(os.path.dirname(self.vector_db_path), "file_state.json")
+
+    def _load_file_state(self):
+        """加载已入库文件的状态"""
+        path = self._get_file_state_path()
+        if os.path.exists(path):
+            with open(path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        return {}
+
+    def _save_file_state(self, state):
+        """保存文件状态"""
+        with open(self._get_file_state_path(), 'w', encoding='utf-8') as f:
+            json.dump(state, f, indent=2, ensure_ascii=False)
+
+    def _get_file_hash(self, file_path):
+        """计算文件的MD5，用于检测内容变化（比修改时间更可靠）"""
+        hasher = hashlib.md5()
+        with open(file_path, 'rb') as f:
+            for chunk in iter(lambda: f.read(4096), b""):
+                hasher.update(chunk)
+        return hasher.hexdigest()
+
+    def _get_all_document_ids(self, file_path, chunks):
+        """为文件的所有块生成唯一ID（用于删除）"""
+        # ID格式：文件路径的MD5 + 页码 + 块内索引
+        file_hash = hashlib.md5(file_path.encode()).hexdigest()[:8]
+        ids = []
+        for i, chunk in enumerate(chunks):
+            # 从chunk.metadata中获取页码
+            page = chunk.metadata.get("page", 0)
+            ids.append(f"{file_hash}_{page}_{i}")
+        return ids
+
+    def incremental_update(self, docs_dir: str):
+        """
+        增量更新知识库：扫描docs_dir，对比状态文件，增删改对应的向量
+        """
+        logger.info("🔍 开始增量更新知识库...")
+        if self.vectordb is None:
+            raise ValueError("请先初始化向量库（调用 load_persisted 或 build_from_directory）")
+
+        # 1. 加载旧状态
+        old_state = self._load_file_state()
+        new_state = {}
+
+        # 2. 递归遍历当前docs目录
+        current_files = {}
+        for root, dirs, files in os.walk(docs_dir):
+            for file in files:
+                ext = os.path.splitext(file)[1].lower()
+                if ext not in ['.pdf', '.txt', '.md']:
+                    continue
+                full_path = os.path.join(root, file)
+                # 记录相对路径（相对于docs_dir），便于状态键名统一
+                rel_path = os.path.relpath(full_path, docs_dir)
+                current_files[rel_path] = full_path
+
+        # 3. 识别需要删除的文件（旧状态中有，新目录中没有）
+        to_delete_files = []
+        for rel_path in old_state:
+            if rel_path not in current_files:
+                to_delete_files.append(rel_path)
+
+        # 4. 识别需要添加/更新的文件（新文件，或修改时间/内容变化）
+        to_process_files = []
+        for rel_path, full_path in current_files.items():
+            current_mtime = os.path.getmtime(full_path)
+            if rel_path not in old_state:
+                to_process_files.append((rel_path, full_path))
+            else:
+                old_mtime = old_state[rel_path].get("mtime", 0)
+                if current_mtime > old_mtime:
+                    to_process_files.append((rel_path, full_path))
+
+        # 5. 处理删除：从向量库中移除这些文件的所有块
+        if to_delete_files:
+            # 收集需要删除的所有块ID
+            ids_to_delete = []
+            for rel_path in to_delete_files:
+                # 从旧状态中取出该文件曾经的所有块ID（如果有记录）
+                if "chunk_ids" in old_state.get(rel_path, {}):
+                    ids_to_delete.extend(old_state[rel_path]["chunk_ids"])
+                else:
+                    # 如果没有记录块ID，则通过文件路径模式删除（需要支持前缀删除）
+                    # 这里简单处理：重新加载该文件并生成ID（但文件已不存在，无法加载）
+                    # 所以更好的办法是在添加时就保存chunk_ids
+                    logger.warning(f"无法删除文件 {rel_path} 的块，缺少ID记录")
+            if ids_to_delete:
+                self.batch_vectorizer.delete_by_ids(ids_to_delete)
+                logger.info(f"已删除 {len(ids_to_delete)} 个块，来自 {len(to_delete_files)} 个移除的文件")
+
+        # 6. 处理新增/更新：重新加载、分块、添加，并记录新ID
+        added_chunk_count = 0
+        for rel_path, full_path in to_process_files:
+            logger.info(f"处理文件: {rel_path}")
+            # 加载文档
+            ext = os.path.splitext(full_path)[1].lower()
+            if ext == '.pdf':
+                docs = self.doc_loader.load_pdf(full_path)
+            elif ext == '.txt':
+                docs = self.doc_loader.load_text(full_path)
+            elif ext == '.md':
+                docs = self.doc_loader.load_md(full_path)
+            else:
+                continue
+            if not docs:
+                continue
+            # 分块
+            chunks = self.doc_loader.split_documents(docs)
+            if not chunks:
+                continue
+            # 生成块ID
+            chunk_ids = self._get_all_document_ids(full_path, chunks)
+            # 如果是更新，先删除该文件原有的块（如果有）
+            if rel_path in old_state and "chunk_ids" in old_state[rel_path]:
+                old_ids = old_state[rel_path]["chunk_ids"]
+                self.batch_vectorizer.delete_by_ids(old_ids)
+                logger.info(f"删除旧块 {len(old_ids)} 个")
+            # 添加新块
+            self.batch_vectorizer.add_documents(chunks)  # 注意：add_documents 接收 List[Document]
+            added_chunk_count += len(chunks)
+            # 记录新状态
+            new_state[rel_path] = {
+                "mtime": os.path.getmtime(full_path),
+                "chunk_ids": chunk_ids
+            }
+
+        # 7. 对于没有变化的文件，保留旧状态
+        for rel_path, info in old_state.items():
+            if rel_path not in to_delete_files and rel_path not in [p for p, _ in to_process_files]:
+                new_state[rel_path] = info
+
+        # 8. 保存新状态
+        self._save_file_state(new_state)
+        logger.info(f"✅ 增量更新完成：新增/更新 {len(to_process_files)} 个文件，添加 {added_chunk_count} 个块；删除 {len(to_delete_files)} 个文件")
+
     def get_stats(self):
         """获取知识库统计"""
         return self.batch_vectorizer.get_stats()

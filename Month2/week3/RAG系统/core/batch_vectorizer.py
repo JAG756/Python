@@ -33,9 +33,10 @@ class BatchVectorizer:
         
         # 创建向量库
         self.vectordb = Chroma.from_documents(
-            documents=chunks,
-            embedding=self.embedding,
+            documents=chunks,                     #文本块列表
+            embedding=self.embedding,             #向量化模型
             persist_directory=self.vector_db_path if persist else None
+            # 如果 persist=True 则保存到磁盘，否则仅在内存中使用
         )
         
         if persist:
@@ -59,12 +60,13 @@ class BatchVectorizer:
         
         return self.vectordb
     
-    def add_documents(self, documents: List[Document]):
-        """增量添加文档"""
+    def add_documents(self, documents: List[Document], ids: List[str] = None):
         if self.vectordb is None:
             raise ValueError("请先创建或加载向量库")
-        
-        self.vectordb.add_documents(documents)
+        if ids:
+            self.vectordb.add_documents(documents, ids=ids)
+        else:
+            self.vectordb.add_documents(documents)
         logger.info(f"➕ 增量添加 {len(documents)} 个文档")
     
     def delete_collection(self):
@@ -73,6 +75,13 @@ class BatchVectorizer:
         if os.path.exists(self.vector_db_path):
             shutil.rmtree(self.vector_db_path)
             logger.info(f"🗑️ 已删除向量库: {self.vector_db_path}")
+
+    def delete_by_ids(self, ids: List[str]):
+        """根据文档ID列表删除向量库中的条目"""
+        if self.vectordb is None:
+            raise ValueError("向量库未初始化")
+        self.vectordb.delete(ids)
+        logger.info(f"🗑️ 已删除 {len(ids)} 个文档块")
     
     def get_stats(self) -> dict:
         """获取向量库统计信息"""
