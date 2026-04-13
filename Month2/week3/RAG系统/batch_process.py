@@ -58,13 +58,31 @@ def process_documents():
     return kb
 
 def clear_vector_db():
-    """清空向量库"""
+    """清空向量库及相关状态文件"""
     import shutil
-    paths = ["./vector_db", "./my_vector_db"]
-    for path in paths:
+    
+    # 要删除的路径列表
+    paths_to_delete = [
+        "./vector_db",          # 向量库目录
+        "./file_state.json",    # 文件状态记录
+        "./bm25_index.pkl"      # BM25 索引文件
+    ]
+    
+    for path in paths_to_delete:
         if os.path.exists(path):
-            shutil.rmtree(path)
-            logger.info(f"✅ 已清空: {path}")
+            try:
+                if os.path.isdir(path):
+                    shutil.rmtree(path)
+                    logger.info(f"✅ 已删除目录: {path}")
+                else:
+                    os.remove(path)
+                    logger.info(f"✅ 已删除文件: {path}")
+            except Exception as e:
+                logger.error(f"删除失败 {path}: {e}")
+        else:
+            logger.info(f"⚠️ 路径不存在，跳过: {path}")
+    
+    logger.info("✅ 知识库及相关文件已清空，下次启动将自动重建")
 
 if __name__ == "__main__":
     logger.info("=" * 60)

@@ -6152,3 +6152,945 @@ ValueError: The truth value of an array with more than one element is ambiguous.
 2026-04-13 15:08:08,818 - RAG_System - INFO - 目录是否存在: True
 2026-04-13 15:08:08,820 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
 2026-04-13 15:08:08,857 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:09:08,857 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:09:08,858 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:09:08,858 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:09:08,859 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:09:08,860 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:09:09,304 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:10:09,305 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:10:09,305 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:10:09,306 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:10:09,307 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:10:09,309 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:10:09,329 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:11:09,330 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:11:09,332 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:11:09,332 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:11:09,333 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:11:09,336 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:11:09,360 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:12:09,362 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:12:09,389 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:12:09,390 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:12:09,390 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:12:09,392 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:12:09,402 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:13:09,403 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:13:09,404 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:13:09,404 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:13:09,404 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:13:09,405 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:13:09,411 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:14:09,411 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:14:09,412 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:14:09,412 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:14:09,413 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:14:09,415 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:14:09,422 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:16:22,982 - RAG_System - INFO - 加载模型中...
+2026-04-13 15:16:23,011 - RAG_System - INFO - 使用设备：cuda
+2026-04-13 15:16:23,012 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-13 15:16:23,012 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-13 15:16:25,236 - RAG_System - INFO - 模型加载完成
+2026-04-13 15:16:25,237 - RAG_System - INFO - docs 目录绝对路径: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:16:25,237 - RAG_System - INFO - 加载已有向量库...
+2026-04-13 15:16:25,240 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 15:16:28,013 - RAG_System - INFO - 📂 加载已有向量库: ./vector_db
+2026-04-13 15:16:28,062 - RAG_System - INFO - 向量库加载成功
+2026-04-13 15:16:28,073 - RAG_System - INFO - BM25 索引加载成功
+2026-04-13 15:16:28,074 - RAG_System - INFO - ✅ 从已有向量库加载成功
+2026-04-13 15:16:28,075 - RAG_System - INFO - 已启动知识库自动更新线程（间隔60秒）
+2026-04-13 15:16:28,075 - RAG_System - INFO - 创建 RAG 引擎...
+2026-04-13 15:16:28,076 - RAG_System - INFO - 加载 Rerank 模型: BAAI/bge-reranker-base, 设备: cuda
+2026-04-13 15:16:30,722 - RAG_System - INFO - 启动界面...
+2026-04-13 15:16:31,627 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-13 15:16:33,110 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-13 15:16:35,380 - httpx - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-13 15:17:28,075 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:17:28,076 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:17:28,076 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:17:28,076 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:17:28,076 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:17:28,091 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:17:38,256 - jieba - DEBUG - Building prefix dict from the default dictionary ...
+2026-04-13 15:17:38,257 - jieba - DEBUG - Loading model from cache C:\Users\ADMINI~1\AppData\Local\Temp\jieba.cache
+2026-04-13 15:17:39,155 - jieba - DEBUG - Loading model cost 0.899 seconds.
+2026-04-13 15:17:39,156 - jieba - DEBUG - Prefix dict has been built successfully.
+2026-04-13 15:17:39,158 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 15:17:46,885 - RAG_System - INFO - 生成耗时: 7.13s
+2026-04-13 15:17:46,905 - RAG_System - INFO - 检索耗时: 2.52s
+2026-04-13 15:17:46,906 - RAG_System - INFO - 问题: 机器学习 -> 检索到来源: 机器学习八股（知识点检索版）.md 第1页 相似度:0.92
+2026-04-13 15:17:58,800 - RAG_System - INFO - 查询改写: 什么是机器学习 定义
+2026-04-13 15:17:58,967 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 15:18:05,106 - RAG_System - INFO - 生成耗时: 5.92s
+2026-04-13 15:18:05,106 - RAG_System - INFO - 检索耗时: 0.38s
+2026-04-13 15:18:05,106 - RAG_System - INFO - 问题: 什么是机器学习 -> 检索到来源: 机器学习八股（知识点检索版）.md 第1页 相似度:0.98
+2026-04-13 15:18:20,054 - RAG_System - INFO - 查询改写: 机器学习定义 定义
+2026-04-13 15:18:20,218 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 15:18:26,361 - RAG_System - INFO - 生成耗时: 5.93s
+2026-04-13 15:18:26,362 - RAG_System - INFO - 检索耗时: 0.38s
+2026-04-13 15:18:26,363 - RAG_System - INFO - 问题: 机器学习定义 -> 检索到来源: 机器学习八股（知识点检索版）.md 第1页 相似度:0.97
+2026-04-13 15:18:28,092 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:18:28,093 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:18:28,094 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:18:28,094 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:18:28,097 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:18:28,118 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:19:28,119 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:19:28,119 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:19:28,120 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:19:28,120 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:19:28,121 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:19:28,127 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:20:28,128 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:20:28,129 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:20:28,129 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:20:28,130 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:20:28,131 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:20:28,136 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:21:38,017 - RAG_System - INFO - 加载模型中...
+2026-04-13 15:21:38,038 - RAG_System - INFO - 使用设备：cuda
+2026-04-13 15:21:38,038 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-13 15:21:38,038 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-13 15:21:40,284 - RAG_System - INFO - 模型加载完成
+2026-04-13 15:21:40,284 - RAG_System - INFO - docs 目录绝对路径: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:21:40,285 - RAG_System - INFO - 加载已有向量库...
+2026-04-13 15:21:40,288 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 15:21:42,315 - RAG_System - INFO - 📂 加载已有向量库: ./vector_db
+2026-04-13 15:21:42,446 - RAG_System - INFO - 向量库加载成功
+2026-04-13 15:21:42,455 - RAG_System - INFO - BM25 索引加载成功
+2026-04-13 15:21:42,455 - RAG_System - INFO - ✅ 从已有向量库加载成功
+2026-04-13 15:21:42,457 - RAG_System - INFO - 已启动知识库自动更新线程（间隔60秒）
+2026-04-13 15:21:42,458 - RAG_System - INFO - 创建 RAG 引擎...
+2026-04-13 15:21:42,458 - RAG_System - INFO - 加载 Rerank 模型: BAAI/bge-reranker-base, 设备: cuda
+2026-04-13 15:21:47,175 - RAG_System - INFO - 启动界面...
+2026-04-13 15:21:48,120 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-13 15:21:49,518 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-13 15:21:51,615 - httpx - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-13 15:21:59,481 - jieba - DEBUG - Building prefix dict from the default dictionary ...
+2026-04-13 15:21:59,481 - jieba - DEBUG - Loading model from cache C:\Users\ADMINI~1\AppData\Local\Temp\jieba.cache
+2026-04-13 15:22:00,404 - jieba - DEBUG - Loading model cost 0.922 seconds.
+2026-04-13 15:22:00,404 - jieba - DEBUG - Prefix dict has been built successfully.
+2026-04-13 15:22:00,405 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 15:22:08,367 - RAG_System - INFO - 生成耗时: 7.45s
+2026-04-13 15:22:08,367 - RAG_System - INFO - 检索耗时: 2.48s
+2026-04-13 15:22:08,368 - RAG_System - INFO - 问题: 机器学习 -> 检索到来源: 机器学习八股（知识点检索版）.md 第1页 相似度:0.92
+2026-04-13 15:22:20,455 - RAG_System - INFO - 查询改写: 机器学习定义 定义 定义 定义
+2026-04-13 15:22:20,660 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 15:22:26,827 - RAG_System - INFO - 生成耗时: 5.92s
+2026-04-13 15:22:26,828 - RAG_System - INFO - 检索耗时: 0.45s
+2026-04-13 15:22:26,828 - RAG_System - INFO - 问题: 机器学习定义 -> 检索到来源: 机器学习八股（知识点检索版）.md 第1页 相似度:0.96
+2026-04-13 15:22:38,773 - RAG_System - INFO - 查询改写: 什么是机器学习 定义 定义 定义
+2026-04-13 15:22:38,920 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 15:22:42,458 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:22:42,458 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:22:42,458 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:22:42,459 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:22:42,461 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:22:42,485 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:22:45,224 - RAG_System - INFO - 生成耗时: 6.12s
+2026-04-13 15:22:45,224 - RAG_System - INFO - 检索耗时: 0.33s
+2026-04-13 15:22:45,225 - RAG_System - INFO - 问题: 什么是机器学习 -> 检索到来源: 机器学习八股（知识点检索版）.md 第1页 相似度:0.97
+2026-04-13 15:23:42,486 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:23:42,487 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:23:42,488 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:23:42,489 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:23:42,491 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:23:42,514 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:24:42,515 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:24:42,516 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:24:42,517 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:24:42,517 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:24:42,521 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:24:42,540 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:25:42,540 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:25:42,541 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:25:42,541 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:25:42,541 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:25:42,542 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:25:42,545 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:26:42,545 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:26:42,546 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:26:42,546 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:26:42,547 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:26:42,549 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:26:42,553 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:27:16,358 - RAG_System - INFO - 加载模型中...
+2026-04-13 15:27:16,374 - RAG_System - INFO - 使用设备：cuda
+2026-04-13 15:27:16,374 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-13 15:27:16,374 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-13 15:27:18,400 - RAG_System - INFO - 模型加载完成
+2026-04-13 15:27:18,400 - RAG_System - INFO - docs 目录绝对路径: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:27:18,400 - RAG_System - INFO - 加载已有向量库...
+2026-04-13 15:27:18,402 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 15:27:19,321 - RAG_System - INFO - 📂 加载已有向量库: ./vector_db
+2026-04-13 15:27:19,387 - RAG_System - INFO - 向量库加载成功
+2026-04-13 15:27:19,391 - RAG_System - INFO - BM25 索引加载成功
+2026-04-13 15:27:19,391 - RAG_System - INFO - ✅ 从已有向量库加载成功
+2026-04-13 15:27:19,392 - RAG_System - INFO - 已启动知识库自动更新线程（间隔60秒）
+2026-04-13 15:27:19,392 - RAG_System - INFO - 创建 RAG 引擎...
+2026-04-13 15:27:19,392 - RAG_System - INFO - 加载 Rerank 模型: BAAI/bge-reranker-base, 设备: cuda
+2026-04-13 15:27:21,981 - RAG_System - INFO - 启动界面...
+2026-04-13 15:27:22,915 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-13 15:27:24,300 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-13 15:27:26,363 - httpx - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-13 15:27:40,288 - RAG_System - INFO - 查询改写: 什么是机器学习 定义 定义 定义
+2026-04-13 15:27:41,300 - jieba - DEBUG - Building prefix dict from the default dictionary ...
+2026-04-13 15:27:41,302 - jieba - DEBUG - Loading model from cache C:\Users\ADMINI~1\AppData\Local\Temp\jieba.cache
+2026-04-13 15:27:42,182 - jieba - DEBUG - Loading model cost 0.880 seconds.
+2026-04-13 15:27:42,184 - jieba - DEBUG - Prefix dict has been built successfully.
+2026-04-13 15:27:42,186 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 15:27:50,201 - RAG_System - INFO - 生成耗时: 7.02s
+2026-04-13 15:27:50,202 - RAG_System - INFO - 检索耗时: 2.89s
+2026-04-13 15:27:50,202 - RAG_System - INFO - 问题: 什么是机器学习 -> 检索到来源: 机器学习八股（知识点检索版）.md 第1页 相似度:0.97
+2026-04-13 15:28:08,917 - RAG_System - INFO - 查询改写: 机器学习定义 定义 定义 定义
+2026-04-13 15:28:09,046 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 15:28:15,306 - RAG_System - INFO - 生成耗时: 5.79s
+2026-04-13 15:28:15,307 - RAG_System - INFO - 检索耗时: 0.60s
+2026-04-13 15:28:15,308 - RAG_System - INFO - 问题: 机器学习定义 -> 检索到来源: 机器学习八股（知识点检索版）.md 第1页 相似度:0.96
+2026-04-13 15:28:19,392 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:28:19,393 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:28:19,394 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:28:19,395 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:28:19,398 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:28:19,425 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:29:19,426 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:29:19,427 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:29:19,427 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:29:19,428 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:29:19,430 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:29:19,438 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:30:19,439 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:30:19,440 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:30:19,440 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:30:19,441 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:30:19,443 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:30:19,447 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:30:57,920 - RAG_System - INFO - 加载模型中...
+2026-04-13 15:30:57,939 - RAG_System - INFO - 使用设备：cuda
+2026-04-13 15:30:57,939 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-13 15:30:57,939 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-13 15:30:59,728 - RAG_System - INFO - 模型加载完成
+2026-04-13 15:30:59,728 - RAG_System - INFO - docs 目录绝对路径: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:30:59,729 - RAG_System - INFO - 加载已有向量库...
+2026-04-13 15:30:59,731 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 15:31:00,668 - RAG_System - INFO - 📂 加载已有向量库: ./vector_db
+2026-04-13 15:31:00,714 - RAG_System - INFO - 向量库加载成功
+2026-04-13 15:31:00,718 - RAG_System - INFO - BM25 索引加载成功
+2026-04-13 15:31:00,718 - RAG_System - INFO - ✅ 从已有向量库加载成功
+2026-04-13 15:31:00,718 - RAG_System - INFO - 已启动知识库自动更新线程（间隔60秒）
+2026-04-13 15:31:00,718 - RAG_System - INFO - 创建 RAG 引擎...
+2026-04-13 15:31:00,718 - RAG_System - INFO - 加载 Rerank 模型: BAAI/bge-reranker-base, 设备: cuda
+2026-04-13 15:31:03,244 - RAG_System - INFO - 启动界面...
+2026-04-13 15:31:04,111 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-13 15:31:05,569 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-13 15:31:07,640 - httpx - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-13 15:32:00,718 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:32:00,719 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:32:00,719 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:32:00,719 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:32:00,719 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:32:00,729 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:33:00,735 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:33:00,736 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:33:00,737 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:33:00,737 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:33:00,740 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:33:00,750 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:34:00,752 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:34:00,752 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:34:00,753 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:34:00,753 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:34:00,755 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:34:00,762 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:35:00,763 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:35:00,764 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:35:00,765 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:35:00,765 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:35:00,773 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:35:00,786 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:36:00,792 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:36:00,793 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:36:00,793 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:36:00,793 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:36:00,795 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:36:00,806 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:37:00,809 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:37:00,810 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:37:00,813 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:37:00,814 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:37:00,815 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:37:00,833 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:38:00,837 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:38:00,837 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:38:00,838 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:38:00,838 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:38:00,839 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:38:00,843 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:39:00,844 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:39:00,844 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:39:00,844 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:39:00,844 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:39:00,845 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:39:00,848 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:39:16,186 - RAG_System - INFO - ============================================================
+2026-04-13 15:39:16,187 - RAG_System - INFO - 📚 批量文档处理工具
+2026-04-13 15:39:16,187 - RAG_System - INFO - ============================================================
+2026-04-13 15:39:16,187 - RAG_System - INFO - 1. 处理文档（构建向量库）
+2026-04-13 15:39:16,187 - RAG_System - INFO - 2. 清空向量库
+2026-04-13 15:39:22,909 - RAG_System - INFO - ✅ 已删除目录: ./vector_db
+2026-04-13 15:39:22,909 - RAG_System - INFO - ✅ 已删除文件: ./file_state.json
+2026-04-13 15:39:22,910 - RAG_System - INFO - ✅ 已删除文件: ./bm25_index.pkl
+2026-04-13 15:39:22,910 - RAG_System - INFO - ✅ 知识库及相关文件已清空，下次启动将自动重建
+2026-04-13 15:39:53,378 - RAG_System - INFO - 加载模型中...
+2026-04-13 15:39:53,399 - RAG_System - INFO - 使用设备：cuda
+2026-04-13 15:39:53,399 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-13 15:39:53,399 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-13 15:39:55,298 - RAG_System - INFO - 模型加载完成
+2026-04-13 15:39:55,298 - RAG_System - INFO - docs 目录绝对路径: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:39:55,299 - RAG_System - INFO - 加载已有向量库...
+2026-04-13 15:39:55,301 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 15:39:55,802 - RAG_System - WARNING - ⚠️ 向量库不存在: ./vector_db
+2026-04-13 15:39:55,803 - RAG_System - WARNING - 向量库加载失败: 向量库目录存在但无法加载，将尝试重建
+2026-04-13 15:39:55,804 - RAG_System - INFO - 从文档目录重建: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:39:55,804 - RAG_System - INFO - 从目录构建知识库: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:39:56,038 - RAG_System - INFO - 📄 加载 PDF: Python 与 PyTorch 基础数据类型及核心知识点.pdf，共 3 页
+2026-04-13 15:39:56,039 - RAG_System - INFO - 📄 加载 Markdown: 机器学习八股（知识点检索版）.md
+2026-04-13 15:39:56,039 - RAG_System - INFO - 📄 加载 Markdown: 深度学习八股（知识点检索版）.md
+2026-04-13 15:39:56,040 - RAG_System - INFO - 📄 加载文本: 优化器.txt
+2026-04-13 15:39:56,040 - RAG_System - INFO - 📄 加载文本: 反向传播.txt
+2026-04-13 15:39:56,040 - RAG_System - INFO - 📄 加载文本: 损失函数.txt
+2026-04-13 15:39:56,040 - RAG_System - INFO - 📄 加载文本: 学习率调度.txt
+2026-04-13 15:39:56,040 - RAG_System - INFO - 📄 加载文本: 批归一化.txt
+2026-04-13 15:39:56,041 - RAG_System - INFO - 📄 加载文本: 正则化.txt
+2026-04-13 15:39:56,041 - RAG_System - INFO - 📄 加载文本: CNN.txt
+2026-04-13 15:39:56,041 - RAG_System - INFO - 📄 加载文本: RNN.txt
+2026-04-13 15:39:56,041 - RAG_System - INFO - 📄 加载文本: Tsansformer.txt
+2026-04-13 15:39:56,042 - RAG_System - INFO - 📄 加载文本: 死锁.txt
+2026-04-13 15:39:56,042 - RAG_System - INFO - 📄 加载文本: 虚拟内存.txt
+2026-04-13 15:39:56,042 - RAG_System - INFO - 📄 加载文本: 进程与线程.txt
+2026-04-13 15:39:56,042 - RAG_System - INFO - 📄 加载文本: MVCC.txt
+2026-04-13 15:39:56,042 - RAG_System - INFO - 📄 加载文本: 事务隔离级别.txt
+2026-04-13 15:39:56,043 - RAG_System - INFO - 📄 加载文本: 索引原理.txt
+2026-04-13 15:39:56,043 - RAG_System - INFO - 📄 加载文本: DNS 解析.txt
+2026-04-13 15:39:56,043 - RAG_System - INFO - 📄 加载文本: HTTP 状态码.txt
+2026-04-13 15:39:56,043 - RAG_System - INFO - 📄 加载文本: TCP 三次握手.txt
+2026-04-13 15:39:56,043 - RAG_System - INFO - 批量加载完成: 1 个 PDF, 20 个 TXT, 共 23 页
+2026-04-13 15:39:56,044 - RAG_System - INFO - 使用语义分块策略
+2026-04-13 15:39:56,046 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda:0
+2026-04-13 15:39:56,046 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 15:39:58,134 - RAG_System - INFO - ✂️ 语义分块: 23 篇文档 → 23 个块
+2026-04-13 15:39:58,138 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 15:39:59,274 - RAG_System - INFO - 💾 向量库已保存到: ./vector_db，共 23 个块（批量插入）
+2026-04-13 15:39:59,274 - RAG_System - INFO - ⏱️ 向量化耗时: 0.89 秒，共 23 个块
+2026-04-13 15:39:59,278 - RAG_System - INFO - 构建 BM25 关键词索引...
+2026-04-13 15:39:59,278 - jieba - DEBUG - Building prefix dict from the default dictionary ...
+2026-04-13 15:39:59,279 - jieba - DEBUG - Loading model from cache C:\Users\ADMINI~1\AppData\Local\Temp\jieba.cache
+2026-04-13 15:39:59,693 - jieba - DEBUG - Loading model cost 0.414 seconds.
+2026-04-13 15:39:59,693 - jieba - DEBUG - Prefix dict has been built successfully.
+2026-04-13 15:39:59,738 - RAG_System - INFO - BM25 索引已保存，共 23 个块
+2026-04-13 15:39:59,739 - RAG_System - INFO - 知识库构建完成，共 23 个文档块
+2026-04-13 15:39:59,739 - RAG_System - INFO - ✅ 从已有向量库加载成功
+2026-04-13 15:39:59,740 - RAG_System - INFO - 已启动知识库自动更新线程（间隔60秒）
+2026-04-13 15:39:59,740 - RAG_System - INFO - 创建 RAG 引擎...
+2026-04-13 15:39:59,740 - RAG_System - INFO - 加载 Rerank 模型: BAAI/bge-reranker-base, 设备: cuda
+2026-04-13 15:40:02,399 - RAG_System - INFO - 启动界面...
+2026-04-13 15:40:03,372 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-13 15:40:04,749 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-13 15:40:06,813 - httpx - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-13 15:40:21,809 - RAG_System - INFO - 查询改写: 什么是机器学习 定义 定义 定义
+2026-04-13 15:40:21,911 - RAG_System - INFO - 混合检索返回 20 个候选：
+2026-04-13 15:40:21,911 - RAG_System - INFO -   1. 机器学习八股（知识点检索版）.md 得分: 0.6612
+2026-04-13 15:40:21,911 - RAG_System - INFO -   2. 优化器.txt 得分: 0.5640
+2026-04-13 15:40:21,911 - RAG_System - INFO -   3. RNN.txt 得分: 0.5551
+2026-04-13 15:40:21,911 - RAG_System - INFO -   4. 学习率调度.txt 得分: 0.5531
+2026-04-13 15:40:21,911 - RAG_System - INFO -   5. 批归一化.txt 得分: 0.5489
+2026-04-13 15:40:21,911 - RAG_System - INFO -   6. CNN.txt 得分: 0.5411
+2026-04-13 15:40:21,912 - RAG_System - INFO -   7. Tsansformer.txt 得分: 0.5225
+2026-04-13 15:40:21,912 - RAG_System - INFO -   8. 正则化.txt 得分: 0.5013
+2026-04-13 15:40:21,912 - RAG_System - INFO -   9. 反向传播.txt 得分: 0.4948
+2026-04-13 15:40:21,912 - RAG_System - INFO -   10. 损失函数.txt 得分: 0.4839
+2026-04-13 15:40:21,912 - RAG_System - INFO -   11. 深度学习八股（知识点检索版）.md 得分: 0.4648
+2026-04-13 15:40:21,912 - RAG_System - INFO -   12. DNS 解析.txt 得分: 0.4605
+2026-04-13 15:40:21,912 - RAG_System - INFO -   13. 进程与线程.txt 得分: 0.4494
+2026-04-13 15:40:21,912 - RAG_System - INFO -   14. 死锁.txt 得分: 0.4159
+2026-04-13 15:40:21,912 - RAG_System - INFO -   15. HTTP 状态码.txt 得分: 0.4148
+2026-04-13 15:40:21,912 - RAG_System - INFO -   16. MVCC.txt 得分: 0.4127
+2026-04-13 15:40:21,912 - RAG_System - INFO -   17. Python 与 PyTorch 基础数据类型及核心知识点.pdf 得分: 0.4093
+2026-04-13 15:40:21,912 - RAG_System - INFO -   18. 虚拟内存.txt 得分: 0.4006
+2026-04-13 15:40:21,912 - RAG_System - INFO -   19. 索引原理.txt 得分: 0.3977
+2026-04-13 15:40:21,913 - RAG_System - INFO -   20. 事务隔离级别.txt 得分: 0.3943
+2026-04-13 15:40:21,913 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 15:40:30,717 - RAG_System - INFO - 生成耗时: 7.95s
+2026-04-13 15:40:30,718 - RAG_System - INFO - 检索耗时: 0.95s
+2026-04-13 15:40:30,719 - RAG_System - INFO - 问题: 什么是机器学习 -> 检索到来源: 机器学习八股（知识点检索版）.md 第1页 相似度:0.97
+2026-04-13 15:40:59,740 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:40:59,740 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:40:59,740 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:40:59,741 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:40:59,742 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:40:59,745 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:41:59,748 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:41:59,749 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:41:59,749 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:41:59,750 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:41:59,751 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:41:59,770 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:42:59,771 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:42:59,772 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:42:59,773 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:42:59,776 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:42:59,779 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:42:59,821 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:43:59,825 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:43:59,826 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:43:59,826 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:43:59,827 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:43:59,829 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:43:59,846 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:44:59,847 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:44:59,848 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:44:59,849 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:44:59,849 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:44:59,852 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:44:59,860 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:46:13,264 - RAG_System - INFO - ============================================================
+2026-04-13 15:46:13,264 - RAG_System - INFO - 📚 批量文档处理工具
+2026-04-13 15:46:13,264 - RAG_System - INFO - ============================================================
+2026-04-13 15:46:13,264 - RAG_System - INFO - 1. 处理文档（构建向量库）
+2026-04-13 15:46:13,264 - RAG_System - INFO - 2. 清空向量库
+2026-04-13 15:46:18,651 - RAG_System - INFO - ✅ 已删除目录: ./vector_db
+2026-04-13 15:46:18,651 - RAG_System - INFO - ✅ 已删除文件: ./file_state.json
+2026-04-13 15:46:18,651 - RAG_System - INFO - ✅ 已删除文件: ./bm25_index.pkl
+2026-04-13 15:46:18,651 - RAG_System - INFO - ✅ 知识库及相关文件已清空，下次启动将自动重建
+2026-04-13 15:46:46,407 - RAG_System - INFO - 加载模型中...
+2026-04-13 15:46:46,425 - RAG_System - INFO - 使用设备：cuda
+2026-04-13 15:46:46,425 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-13 15:46:46,425 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-13 15:46:48,308 - RAG_System - INFO - 模型加载完成
+2026-04-13 15:46:48,308 - RAG_System - INFO - docs 目录绝对路径: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:46:48,308 - RAG_System - INFO - 加载已有向量库...
+2026-04-13 15:46:48,312 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 15:46:48,822 - RAG_System - WARNING - ⚠️ 向量库不存在: ./vector_db
+2026-04-13 15:46:48,822 - RAG_System - WARNING - 向量库加载失败: 向量库目录存在但无法加载，将尝试重建
+2026-04-13 15:46:48,823 - RAG_System - INFO - 从文档目录重建: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:46:48,823 - RAG_System - INFO - 从目录构建知识库: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:46:48,965 - RAG_System - INFO - 📄 加载 PDF: Python 与 PyTorch 基础数据类型及核心知识点.pdf，共 3 页
+2026-04-13 15:46:48,966 - RAG_System - INFO - 📄 加载 Markdown: 机器学习八股（知识点检索版）.md
+2026-04-13 15:46:48,966 - RAG_System - INFO - 📄 加载 Markdown: 深度学习八股（知识点检索版）.md
+2026-04-13 15:46:48,967 - RAG_System - INFO - 📄 加载文本: 优化器.txt
+2026-04-13 15:46:48,967 - RAG_System - INFO - 📄 加载文本: 反向传播.txt
+2026-04-13 15:46:48,967 - RAG_System - INFO - 📄 加载文本: 损失函数.txt
+2026-04-13 15:46:48,968 - RAG_System - INFO - 📄 加载文本: 学习率调度.txt
+2026-04-13 15:46:48,968 - RAG_System - INFO - 📄 加载文本: 批归一化.txt
+2026-04-13 15:46:48,968 - RAG_System - INFO - 📄 加载文本: 正则化.txt
+2026-04-13 15:46:48,969 - RAG_System - INFO - 📄 加载文本: CNN.txt
+2026-04-13 15:46:48,969 - RAG_System - INFO - 📄 加载文本: RNN.txt
+2026-04-13 15:46:48,969 - RAG_System - INFO - 📄 加载文本: Tsansformer.txt
+2026-04-13 15:46:48,970 - RAG_System - INFO - 📄 加载文本: 死锁.txt
+2026-04-13 15:46:48,970 - RAG_System - INFO - 📄 加载文本: 虚拟内存.txt
+2026-04-13 15:46:48,970 - RAG_System - INFO - 📄 加载文本: 进程与线程.txt
+2026-04-13 15:46:48,970 - RAG_System - INFO - 📄 加载文本: MVCC.txt
+2026-04-13 15:46:48,971 - RAG_System - INFO - 📄 加载文本: 事务隔离级别.txt
+2026-04-13 15:46:48,971 - RAG_System - INFO - 📄 加载文本: 索引原理.txt
+2026-04-13 15:46:48,971 - RAG_System - INFO - 📄 加载文本: DNS 解析.txt
+2026-04-13 15:46:48,972 - RAG_System - INFO - 📄 加载文本: HTTP 状态码.txt
+2026-04-13 15:46:48,972 - RAG_System - INFO - 📄 加载文本: TCP 三次握手.txt
+2026-04-13 15:46:48,972 - RAG_System - INFO - 批量加载完成: 1 个 PDF, 20 个 TXT, 共 23 页
+2026-04-13 15:46:48,972 - RAG_System - INFO - 使用递归分块策略
+2026-04-13 15:46:48,973 - RAG_System - INFO - ✂️ 文档分块: 23 页 → 80 个块
+2026-04-13 15:46:48,973 - RAG_System - INFO -    块大小: 500 字符, 重叠: 50 字符
+2026-04-13 15:46:48,975 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 15:46:50,790 - RAG_System - INFO - 💾 向量库已保存到: ./vector_db，共 80 个块（批量插入）
+2026-04-13 15:46:50,790 - RAG_System - INFO - ⏱️ 向量化耗时: 1.55 秒，共 80 个块
+2026-04-13 15:46:50,795 - RAG_System - INFO - 构建 BM25 关键词索引...
+2026-04-13 15:46:50,796 - jieba - DEBUG - Building prefix dict from the default dictionary ...
+2026-04-13 15:46:50,796 - jieba - DEBUG - Loading model from cache C:\Users\ADMINI~1\AppData\Local\Temp\jieba.cache
+2026-04-13 15:46:51,228 - jieba - DEBUG - Loading model cost 0.431 seconds.
+2026-04-13 15:46:51,228 - jieba - DEBUG - Prefix dict has been built successfully.
+2026-04-13 15:46:51,278 - RAG_System - INFO - BM25 索引已保存，共 80 个块
+2026-04-13 15:46:51,278 - RAG_System - INFO - 知识库构建完成，共 80 个文档块
+2026-04-13 15:46:51,278 - RAG_System - INFO - ✅ 从已有向量库加载成功
+2026-04-13 15:46:51,279 - RAG_System - INFO - 已启动知识库自动更新线程（间隔60秒）
+2026-04-13 15:46:51,279 - RAG_System - INFO - 创建 RAG 引擎...
+2026-04-13 15:46:51,280 - RAG_System - INFO - 加载 Rerank 模型: BAAI/bge-reranker-base, 设备: cuda
+2026-04-13 15:46:53,837 - RAG_System - INFO - 启动界面...
+2026-04-13 15:46:54,715 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-13 15:46:56,212 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-13 15:46:58,292 - httpx - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-13 15:47:51,280 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:47:51,281 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:47:51,281 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:47:51,282 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:47:51,284 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:47:51,321 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:48:51,322 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:48:51,322 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:48:51,323 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:48:51,323 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:48:51,325 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:48:51,337 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:49:51,338 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:49:51,338 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:49:51,339 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:49:51,339 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:49:51,340 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:49:51,345 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:50:27,582 - RAG_System - INFO - 查询改写: 什么是机器学习 定义 定义 定义
+2026-04-13 15:50:27,664 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 15:50:28,214 - RAG_System - INFO - 检索耗时: 0.63s
+2026-04-13 15:50:28,215 - RAG_System - INFO - 问题: 什么是机器学习 -> 检索到来源: 机器学习八股（知识点检索版）.md 第1页 相似度:0.98
+2026-04-13 15:50:51,348 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:50:51,349 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:50:51,350 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:50:51,351 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:50:51,355 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:50:51,386 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:52:01,867 - RAG_System - INFO - 加载模型中...
+2026-04-13 15:52:01,886 - RAG_System - INFO - 使用设备：cuda
+2026-04-13 15:52:01,887 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-13 15:52:01,887 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-13 15:52:03,724 - RAG_System - INFO - 模型加载完成
+2026-04-13 15:52:03,725 - RAG_System - INFO - docs 目录绝对路径: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:52:03,725 - RAG_System - INFO - 加载已有向量库...
+2026-04-13 15:52:03,727 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 15:52:04,724 - RAG_System - INFO - 📂 加载已有向量库: ./vector_db
+2026-04-13 15:52:04,781 - RAG_System - INFO - 向量库加载成功
+2026-04-13 15:52:04,793 - RAG_System - INFO - BM25 索引加载成功
+2026-04-13 15:52:04,794 - RAG_System - INFO - ✅ 从已有向量库加载成功
+2026-04-13 15:52:04,794 - RAG_System - INFO - 已启动知识库自动更新线程（间隔60秒）
+2026-04-13 15:52:04,795 - RAG_System - INFO - 创建 RAG 引擎...
+2026-04-13 15:52:04,795 - RAG_System - INFO - 加载 Rerank 模型: BAAI/bge-reranker-base, 设备: cuda
+2026-04-13 15:52:07,263 - RAG_System - INFO - 启动界面...
+2026-04-13 15:52:08,231 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-13 15:52:09,600 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-13 15:52:11,644 - httpx - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-13 15:52:45,561 - RAG_System - INFO - 查询改写: 什么是机器学习 定义 定义 定义
+2026-04-13 15:52:46,489 - jieba - DEBUG - Building prefix dict from the default dictionary ...
+2026-04-13 15:52:46,491 - jieba - DEBUG - Loading model from cache C:\Users\ADMINI~1\AppData\Local\Temp\jieba.cache
+2026-04-13 15:52:47,431 - jieba - DEBUG - Loading model cost 0.940 seconds.
+2026-04-13 15:52:47,432 - jieba - DEBUG - Prefix dict has been built successfully.
+2026-04-13 15:52:47,433 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 15:52:55,595 - RAG_System - INFO - 生成耗时: 7.42s
+2026-04-13 15:52:55,596 - RAG_System - INFO - 检索耗时: 2.61s
+2026-04-13 15:52:55,596 - RAG_System - INFO - 问题: 什么是机器学习 -> 检索到来源: 机器学习八股（知识点检索版）.md 第1页 相似度:0.98
+2026-04-13 15:53:04,806 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:53:04,808 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:53:04,808 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:53:04,809 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:53:04,811 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:53:04,848 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:54:04,856 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:54:04,859 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:54:04,867 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:54:04,868 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:54:04,877 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:54:04,904 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:55:04,904 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:55:04,905 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:55:04,906 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:55:04,906 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:55:04,908 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:55:04,920 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:55:52,806 - RAG_System - INFO - 查询改写: 什么是进程？ 定义 定义 定义
+2026-04-13 15:55:52,875 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 15:55:59,908 - RAG_System - INFO - 生成耗时: 6.60s
+2026-04-13 15:55:59,909 - RAG_System - INFO - 检索耗时: 0.51s
+2026-04-13 15:55:59,910 - RAG_System - INFO - 问题: 什么是进程？ -> 检索到来源: 进程与线程.txt 第1页 相似度:0.98
+2026-04-13 15:56:04,922 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:56:04,924 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:56:04,925 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:56:04,926 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:56:04,928 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:56:04,944 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:56:05,560 - RAG_System - INFO - 查询改写: 什么是死锁？ 定义 定义 定义
+2026-04-13 15:56:05,628 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 15:56:12,807 - RAG_System - INFO - 生成耗时: 6.73s
+2026-04-13 15:56:12,808 - RAG_System - INFO - 检索耗时: 0.52s
+2026-04-13 15:56:12,808 - RAG_System - INFO - 问题: 什么是死锁？ -> 检索到来源: 死锁.txt 第1页 相似度:1.00
+2026-04-13 15:57:04,945 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:57:04,946 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:57:04,946 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:57:04,947 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:57:04,950 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:57:04,967 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:58:04,969 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:58:04,969 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:58:04,970 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:58:04,970 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:58:04,972 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:58:04,981 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 15:59:04,982 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 15:59:04,983 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 15:59:04,984 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 15:59:04,984 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 15:59:04,986 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 15:59:05,001 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:00:05,002 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:00:05,002 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:00:05,003 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:00:05,003 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:00:05,006 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:00:05,018 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:01:05,019 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:01:05,020 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:01:05,021 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:01:05,021 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:01:05,023 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:01:05,039 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:02:05,039 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:02:05,041 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:02:05,041 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:02:05,042 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:02:05,047 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:02:05,074 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:03:05,075 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:03:05,075 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:03:05,076 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:03:05,077 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:03:05,079 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:03:05,091 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:04:05,092 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:04:05,092 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:04:05,093 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:04:05,094 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:04:05,096 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:04:05,107 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:05:05,107 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:05:05,108 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:05:05,108 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:05:05,109 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:05:05,112 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:05:05,124 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:06:05,125 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:06:05,126 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:06:05,126 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:06:05,127 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:06:05,127 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:06:05,132 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:07:05,133 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:07:05,134 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:07:05,136 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:07:05,137 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:07:05,140 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:07:05,167 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:08:05,171 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:08:05,172 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:08:05,173 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:08:05,178 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:08:05,182 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:08:05,199 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:09:05,200 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:09:05,200 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:09:05,200 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:09:05,201 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:09:05,201 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:09:05,206 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:10:05,206 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:10:05,206 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:10:05,206 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:10:05,207 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:10:05,207 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:10:05,213 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:11:05,214 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:11:05,214 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:11:05,214 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:11:05,215 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:11:05,216 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:11:05,221 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:12:05,221 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:12:05,222 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:12:05,222 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:12:05,223 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:12:05,225 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:12:05,230 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:13:05,230 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:13:05,231 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:13:05,231 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:13:05,231 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:13:05,232 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:13:05,237 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:14:05,238 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:14:05,238 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:14:05,238 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:14:05,238 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:14:05,240 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:14:05,248 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:15:05,249 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:15:05,250 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:15:05,251 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:15:05,251 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:15:05,255 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:15:05,273 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:16:05,282 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:16:05,282 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:16:05,282 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:16:05,283 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:16:05,291 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:16:05,322 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:17:05,324 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:17:05,324 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:17:05,324 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:17:05,325 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:17:05,325 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:17:05,331 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:18:05,332 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:18:05,333 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:18:05,333 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:18:05,334 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:18:05,345 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:18:05,371 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:19:05,372 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:19:05,373 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:19:05,373 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:19:05,373 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:19:05,377 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:19:05,392 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:20:05,392 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:20:05,393 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:20:05,394 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:20:05,394 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:20:05,398 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:20:05,421 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:21:05,429 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:21:05,430 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:21:05,430 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:21:05,431 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:21:05,433 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:21:05,456 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:22:05,458 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:22:05,459 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:22:05,460 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:22:05,460 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:22:05,462 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:22:05,485 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:23:05,487 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:23:05,487 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:23:05,488 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:23:05,489 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:23:05,492 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:23:05,540 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:24:05,542 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:24:05,543 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:24:05,543 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:24:05,543 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:24:05,545 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:24:05,554 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:25:05,555 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:25:05,556 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:25:05,559 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:25:05,560 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:25:05,563 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:25:05,589 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:26:05,591 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:26:05,592 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:26:05,593 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:26:05,594 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:26:05,600 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:26:05,627 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:27:05,628 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:27:05,631 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:27:05,632 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:27:05,633 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:27:05,637 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:27:05,656 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:28:05,659 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:28:05,659 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:28:05,660 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:28:05,660 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:28:05,662 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:28:05,678 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:29:05,680 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:29:05,681 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:29:05,681 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:29:05,682 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:29:05,682 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:29:05,687 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:30:05,688 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:30:05,689 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:30:05,690 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:30:05,690 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:30:05,692 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:30:05,717 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:31:05,771 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:31:05,773 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:31:05,773 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:31:05,774 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:31:05,776 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:31:05,791 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:32:05,792 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:32:05,793 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:32:05,794 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:32:05,795 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:32:05,800 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:32:05,821 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:33:05,822 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:33:05,822 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:33:05,823 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:33:05,823 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:33:05,825 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:33:05,833 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:34:05,835 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:34:05,835 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:34:05,836 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:34:05,836 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:34:05,838 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:34:05,849 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:35:41,190 - RAG_System - INFO - ============================================================
+2026-04-13 16:35:41,193 - RAG_System - INFO - 📚 批量文档处理工具
+2026-04-13 16:35:41,194 - RAG_System - INFO - ============================================================
+2026-04-13 16:35:41,194 - RAG_System - INFO - 1. 处理文档（构建向量库）
+2026-04-13 16:35:41,195 - RAG_System - INFO - 2. 清空向量库
+2026-04-13 16:35:57,950 - RAG_System - INFO - ✅ 已删除目录: ./vector_db
+2026-04-13 16:35:57,950 - RAG_System - INFO - ✅ 已删除文件: ./file_state.json
+2026-04-13 16:35:57,951 - RAG_System - INFO - ✅ 已删除文件: ./bm25_index.pkl
+2026-04-13 16:35:57,951 - RAG_System - INFO - ✅ 知识库及相关文件已清空，下次启动将自动重建
+2026-04-13 16:38:48,215 - RAG_System - INFO - 加载模型中...
+2026-04-13 16:38:48,233 - RAG_System - INFO - 使用设备：cuda
+2026-04-13 16:38:48,233 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-13 16:38:48,233 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-13 16:38:50,608 - RAG_System - INFO - 模型加载完成
+2026-04-13 16:38:50,609 - RAG_System - INFO - docs 目录绝对路径: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:38:50,609 - RAG_System - INFO - 加载已有向量库...
+2026-04-13 16:38:50,612 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 16:38:51,141 - RAG_System - WARNING - ⚠️ 向量库不存在: ./vector_db
+2026-04-13 16:38:51,142 - RAG_System - WARNING - 向量库加载失败: 向量库目录存在但无法加载，将尝试重建
+2026-04-13 16:38:51,142 - RAG_System - INFO - 从文档目录重建: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:38:51,142 - RAG_System - INFO - 从目录构建知识库: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:38:51,289 - RAG_System - INFO - 📄 加载 PDF: Python 与 PyTorch 基础数据类型及核心知识点.pdf，共 3 页
+2026-04-13 16:38:51,290 - RAG_System - INFO - 📄 加载 Markdown: 机器学习八股（知识点检索版）.md
+2026-04-13 16:38:51,291 - RAG_System - INFO - 📄 加载 Markdown: 深度学习八股（知识点检索版）.md
+2026-04-13 16:38:51,292 - RAG_System - INFO - 📄 加载文本: 优化器.txt
+2026-04-13 16:38:51,292 - RAG_System - INFO - 📄 加载文本: 反向传播.txt
+2026-04-13 16:38:51,292 - RAG_System - INFO - 📄 加载文本: 损失函数.txt
+2026-04-13 16:38:51,293 - RAG_System - INFO - 📄 加载文本: 学习率调度.txt
+2026-04-13 16:38:51,294 - RAG_System - INFO - 📄 加载文本: 批归一化.txt
+2026-04-13 16:38:51,294 - RAG_System - INFO - 📄 加载文本: 正则化.txt
+2026-04-13 16:38:51,294 - RAG_System - INFO - 📄 加载文本: CNN.txt
+2026-04-13 16:38:51,295 - RAG_System - INFO - 📄 加载文本: RNN.txt
+2026-04-13 16:38:51,295 - RAG_System - INFO - 📄 加载文本: Tsansformer.txt
+2026-04-13 16:38:51,296 - RAG_System - INFO - 📄 加载文本: 死锁.txt
+2026-04-13 16:38:51,297 - RAG_System - INFO - 📄 加载文本: 虚拟内存.txt
+2026-04-13 16:38:51,297 - RAG_System - INFO - 📄 加载文本: 进程与线程.txt
+2026-04-13 16:38:51,298 - RAG_System - INFO - 📄 加载文本: MVCC.txt
+2026-04-13 16:38:51,298 - RAG_System - INFO - 📄 加载文本: 事务隔离级别.txt
+2026-04-13 16:38:51,298 - RAG_System - INFO - 📄 加载文本: 索引原理.txt
+2026-04-13 16:38:51,299 - RAG_System - INFO - 📄 加载文本: DNS 解析.txt
+2026-04-13 16:38:51,299 - RAG_System - INFO - 📄 加载文本: HTTP 状态码.txt
+2026-04-13 16:38:51,300 - RAG_System - INFO - 📄 加载文本: TCP 三次握手.txt
+2026-04-13 16:38:51,300 - RAG_System - INFO - 批量加载完成: 1 个 PDF, 20 个 TXT, 共 23 页
+2026-04-13 16:38:51,300 - RAG_System - INFO - 使用递归分块策略
+2026-04-13 16:38:51,301 - RAG_System - INFO - ✂️ 文档分块: 23 页 → 80 个块
+2026-04-13 16:38:51,301 - RAG_System - INFO -    块大小: 500 字符, 重叠: 50 字符
+2026-04-13 16:38:51,304 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 16:38:53,418 - RAG_System - INFO - 💾 向量库已保存到: ./vector_db，共 80 个块（批量插入）
+2026-04-13 16:38:53,419 - RAG_System - INFO - ⏱️ 向量化耗时: 1.86 秒，共 80 个块
+2026-04-13 16:38:53,423 - RAG_System - INFO - 构建 BM25 关键词索引...
+2026-04-13 16:38:53,424 - jieba - DEBUG - Building prefix dict from the default dictionary ...
+2026-04-13 16:38:53,424 - jieba - DEBUG - Loading model from cache C:\Users\ADMINI~1\AppData\Local\Temp\jieba.cache
+2026-04-13 16:38:53,845 - jieba - DEBUG - Loading model cost 0.421 seconds.
+2026-04-13 16:38:53,845 - jieba - DEBUG - Prefix dict has been built successfully.
+2026-04-13 16:38:53,893 - RAG_System - INFO - BM25 索引已保存，共 80 个块
+2026-04-13 16:38:53,894 - RAG_System - WARNING - ⚠️ 加载已有向量库失败: name 'USE_HIERARCHICAL' is not defined，开始构建...
+2026-04-13 16:38:53,894 - RAG_System - INFO - 从目录构建知识库: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:38:53,965 - RAG_System - INFO - 📄 加载 PDF: Python 与 PyTorch 基础数据类型及核心知识点.pdf，共 3 页
+2026-04-13 16:38:53,966 - RAG_System - INFO - 📄 加载 Markdown: 机器学习八股（知识点检索版）.md
+2026-04-13 16:38:53,966 - RAG_System - INFO - 📄 加载 Markdown: 深度学习八股（知识点检索版）.md
+2026-04-13 16:38:53,966 - RAG_System - INFO - 📄 加载文本: 优化器.txt
+2026-04-13 16:38:53,967 - RAG_System - INFO - 📄 加载文本: 反向传播.txt
+2026-04-13 16:38:53,967 - RAG_System - INFO - 📄 加载文本: 损失函数.txt
+2026-04-13 16:38:53,967 - RAG_System - INFO - 📄 加载文本: 学习率调度.txt
+2026-04-13 16:38:53,967 - RAG_System - INFO - 📄 加载文本: 批归一化.txt
+2026-04-13 16:38:53,967 - RAG_System - INFO - 📄 加载文本: 正则化.txt
+2026-04-13 16:38:53,968 - RAG_System - INFO - 📄 加载文本: CNN.txt
+2026-04-13 16:38:53,968 - RAG_System - INFO - 📄 加载文本: RNN.txt
+2026-04-13 16:38:53,968 - RAG_System - INFO - 📄 加载文本: Tsansformer.txt
+2026-04-13 16:38:53,968 - RAG_System - INFO - 📄 加载文本: 死锁.txt
+2026-04-13 16:38:53,968 - RAG_System - INFO - 📄 加载文本: 虚拟内存.txt
+2026-04-13 16:38:53,968 - RAG_System - INFO - 📄 加载文本: 进程与线程.txt
+2026-04-13 16:38:53,969 - RAG_System - INFO - 📄 加载文本: MVCC.txt
+2026-04-13 16:38:53,969 - RAG_System - INFO - 📄 加载文本: 事务隔离级别.txt
+2026-04-13 16:38:53,969 - RAG_System - INFO - 📄 加载文本: 索引原理.txt
+2026-04-13 16:38:53,969 - RAG_System - INFO - 📄 加载文本: DNS 解析.txt
+2026-04-13 16:38:53,969 - RAG_System - INFO - 📄 加载文本: HTTP 状态码.txt
+2026-04-13 16:38:53,970 - RAG_System - INFO - 📄 加载文本: TCP 三次握手.txt
+2026-04-13 16:38:53,970 - RAG_System - INFO - 批量加载完成: 1 个 PDF, 20 个 TXT, 共 23 页
+2026-04-13 16:38:53,970 - RAG_System - INFO - 使用递归分块策略
+2026-04-13 16:38:53,971 - RAG_System - INFO - ✂️ 文档分块: 23 页 → 80 个块
+2026-04-13 16:38:53,971 - RAG_System - INFO -    块大小: 500 字符, 重叠: 50 字符
+2026-04-13 16:38:53,973 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 16:38:55,131 - RAG_System - INFO - 💾 向量库已保存到: ./vector_db，共 80 个块（批量插入）
+2026-04-13 16:38:55,132 - RAG_System - INFO - ⏱️ 向量化耗时: 0.88 秒，共 80 个块
+2026-04-13 16:38:55,135 - RAG_System - INFO - 构建 BM25 关键词索引...
+2026-04-13 16:38:55,185 - RAG_System - INFO - BM25 索引已保存，共 80 个块
+2026-04-13 16:40:06,256 - RAG_System - INFO - 加载模型中...
+2026-04-13 16:40:06,278 - RAG_System - INFO - 使用设备：cuda
+2026-04-13 16:40:06,278 - RAG_System - INFO - 加载模型：Qwen/Qwen1.5-1.8B-Chat
+2026-04-13 16:40:06,278 - RAG_System - INFO - 使用本地缓存，不联网...
+2026-04-13 16:40:08,098 - RAG_System - INFO - 模型加载完成
+2026-04-13 16:40:08,099 - RAG_System - INFO - docs 目录绝对路径: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:40:08,099 - RAG_System - INFO - 加载已有向量库...
+2026-04-13 16:40:08,101 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
+2026-04-13 16:40:08,914 - RAG_System - INFO - 📂 加载已有向量库: ./vector_db
+2026-04-13 16:40:09,040 - RAG_System - INFO - 向量库加载成功
+2026-04-13 16:40:09,081 - RAG_System - INFO - BM25 索引加载成功
+2026-04-13 16:40:09,081 - RAG_System - WARNING - 章节摘要索引不存在，请先构建知识库
+2026-04-13 16:40:09,081 - RAG_System - INFO - ✅ 从已有向量库加载成功
+2026-04-13 16:40:09,082 - RAG_System - INFO - 已启动知识库自动更新线程（间隔60秒）
+2026-04-13 16:40:09,082 - RAG_System - INFO - 创建 RAG 引擎...
+2026-04-13 16:40:09,082 - RAG_System - INFO - 加载 Rerank 模型: BAAI/bge-reranker-base, 设备: cuda
+2026-04-13 16:40:11,629 - RAG_System - INFO - 启动界面...
+2026-04-13 16:40:12,667 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2026-04-13 16:40:13,929 - httpx - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2026-04-13 16:40:15,982 - httpx - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2026-04-13 16:41:09,082 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:41:09,083 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:41:09,083 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:41:09,084 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:41:09,087 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:41:09,104 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:42:09,105 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:42:09,106 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:42:09,106 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:42:09,107 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:42:09,109 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:42:09,118 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:43:09,119 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:43:09,120 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:43:09,120 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:43:09,121 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:43:09,122 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:43:09,130 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:44:09,130 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:44:09,130 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:44:09,131 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:44:09,131 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:44:09,132 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:44:09,137 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:45:01,227 - RAG_System - INFO - 查询改写: 什么是机器学习 定义 定义 定义
+2026-04-13 16:45:02,249 - jieba - DEBUG - Building prefix dict from the default dictionary ...
+2026-04-13 16:45:02,249 - jieba - DEBUG - Loading model from cache C:\Users\ADMINI~1\AppData\Local\Temp\jieba.cache
+2026-04-13 16:45:03,231 - jieba - DEBUG - Loading model cost 0.982 seconds.
+2026-04-13 16:45:03,232 - jieba - DEBUG - Prefix dict has been built successfully.
+2026-04-13 16:45:03,234 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 16:45:09,137 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:45:09,137 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:45:09,137 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:45:09,138 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:45:09,140 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:45:09,148 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:45:11,179 - RAG_System - INFO - 生成耗时: 7.45s
+2026-04-13 16:45:11,179 - RAG_System - INFO - 检索耗时: 2.50s
+2026-04-13 16:45:11,179 - RAG_System - INFO - 问题: 什么是机器学习 -> 检索到来源: 机器学习八股（知识点检索版）.md 第1页 相似度:0.98
+2026-04-13 16:46:03,061 - RAG_System - INFO - 查询改写: 什么是进程？ 定义 定义 定义
+2026-04-13 16:46:03,141 - RAG_System - INFO - 🔄 执行 Rerank 重排序...
+2026-04-13 16:46:09,148 - RAG_System - INFO - 🔄 定时触发知识库增量更新...
+2026-04-13 16:46:09,149 - RAG_System - INFO - 🔍 开始增量更新知识库...
+2026-04-13 16:46:09,149 - RAG_System - INFO - 扫描目录: e:\Pythod\Month2\week3\RAG系统\docs
+2026-04-13 16:46:09,150 - RAG_System - INFO - 目录是否存在: True
+2026-04-13 16:46:09,153 - RAG_System - INFO - 找到文件: ['e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\Python 与 PyTorch 基础数据类型及核心知识点.pdf', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\机器学习\\机器学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\八股面试\\深度学习\\深度学习八股（知识点检索版）.md', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\优化器.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\反向传播.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\基础\\损失函数.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\学习率调度.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\批归一化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\技巧\\正则化.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\CNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\RNN.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\深度学习\\模型\\Tsansformer.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\死锁.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\虚拟内存.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\操作系统\\进程与线程.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\MVCC.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\事务隔离级别.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\数据库\\索引原理.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\DNS 解析.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\HTTP 状态码.txt', 'e:\\Pythod\\Month2\\week3\\RAG系统\\docs\\计算机基础\\计算机网络\\TCP 三次握手.txt']
+2026-04-13 16:46:09,165 - RAG_System - INFO - ✅ 增量更新完成：新增/更新 0 个文件，添加 0 个块；删除 0 个文件
+2026-04-13 16:46:09,226 - RAG_System - INFO - 生成耗时: 5.52s
+2026-04-13 16:46:09,227 - RAG_System - INFO - 检索耗时: 0.64s
+2026-04-13 16:46:09,227 - RAG_System - INFO - 问题: 什么是进程？ -> 检索到来源: 进程与线程.txt 第1页 相似度:0.98

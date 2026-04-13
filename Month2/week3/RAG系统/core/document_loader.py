@@ -135,7 +135,39 @@ class DocumentLoader:
         logger.info(f"   块大小: {self.chunk_size} 字符, 重叠: {self.chunk_overlap} 字符")
         return chunks
 
-        # 在 DocumentLoader 类中添加以下方法（放在 split_documents 方法之后）
+    def split_by_chapters(self, document: Document) -> List[Document]:
+        """
+        将 Markdown 文档按二级标题（##）切分成章节，每个章节作为一个 Document。
+        保留原文档的元数据，并添加 chapter_title 字段。
+        """
+        import re
+        content = document.page_content
+        # 匹配二级标题及其后的内容（直到下一个二级标题或文档结束）
+        pattern = r'(##\s+[^\n]+)\n(.*?)(?=\n##\s+|$)'
+        matches = re.findall(pattern, content, re.DOTALL)
+        
+        if not matches:
+            # 如果没有二级标题，返回整个文档作为一个章节
+            doc = Document(
+                page_content=content,
+                metadata={**document.metadata, "chapter_title": "全文", "is_chapter": True}
+            )
+            return [doc]
+        
+        chapters = []
+        for title, body in matches:
+            # 生成章节的摘要（取前 300 字符作为摘要）
+            summary = body.strip()[:300]
+            chapter_content = f"{title}\n{body.strip()}"
+            metadata = {
+                **document.metadata,
+                "chapter_title": title.strip(),
+                "summary": summary,
+                "is_chapter": True
+            }
+            chapters.append(Document(page_content=chapter_content, metadata=metadata))
+        return chapters    
+
     def _semantic_split_text(self, text: str, threshold: float = 0.5) -> List[str]:
         """语义分块：基于句子向量相似度切分"""
         from sentence_transformers import SentenceTransformer

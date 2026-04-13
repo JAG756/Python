@@ -14,7 +14,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 
 from config import KNOWLEDGE_BASE, SIMILARITY_THRESHOLD, TOP_K, USE_SEMANTIC_CHUNKING
-from config import USE_HYBRID_SEARCH
+from config import USE_HYBRID_SEARCH, HYBRID_ALPHA, USE_RERANK, RERANK_MODEL, USE_HIERARCHICAL, CHAPTER_TOP_K
 
 from core.document_loader import DocumentLoader
 from core.batch_vectorizer import BatchVectorizer
@@ -34,7 +34,8 @@ class KnowledgeBase:
         self.bm25_index = None           # 存放 BM25 模型对象
         self.bm25_chunks = []            # 存放与 BM25 索引顺序对应的文本块（用于返回结果）
         self.bm25_path = os.path.join(os.path.dirname(vector_db_path), "bm25_index.pkl")
-    #初始化
+        self.chapter_store = None          # 章节摘要向量库
+        self.chapter_db_path = os.path.join(os.path.dirname(vector_db_path), "chapter_db")
     
     def build_from_strings(self, texts: List[str]):
         """从字符串列表构建知识库"""
@@ -126,6 +127,10 @@ class KnowledgeBase:
         if USE_HYBRID_SEARCH:
             self._build_bm25_index(chunks)
         # ==========================================
+        # ========== 构建章节摘要索引（分层检索用） ==========
+        if USE_HIERARCHICAL:
+            self._build_chapter_index(documents)
+        # ===============================================
 
         logger.info(f"知识库构建完成，共 {len(chunks)} 个文档块")
         return self
@@ -176,6 +181,8 @@ class KnowledgeBase:
                 logger.info("向量库加载成功")
                 if USE_HYBRID_SEARCH:
                     self._load_bm25_index()
+                if USE_HIERARCHICAL:
+                    self._load_chapter_index()
                 return self
             else:
                 raise FileNotFoundError("向量库目录存在但无法加载")
@@ -210,6 +217,18 @@ class KnowledgeBase:
             
             return self
     
+    def _load_chapter_index(self):
+        """加载已有的章节摘要向量库"""
+        from langchain_community.vectorstores import Chroma
+        if os.path.exists(self.chapter_db_path):
+            self.chapter_store = Chroma(
+                persist_directory=self.chapter_db_path,
+                embedding_function=self.batch_vectorizer.embedding
+            )
+            logger.info("章节摘要索引加载成功")
+        else:
+            logger.warning("章节摘要索引不存在，请先构建知识库")    
+
     def _get_file_state_path(self):
         """状态文件路径，放在向量库目录旁边"""
         return os.path.join(os.path.dirname(self.vector_db_path), "file_state.json")
@@ -221,7 +240,7 @@ class KnowledgeBase:
             with open(path, 'r', encoding='utf-8') as f:
                 return json.load(f)
         return {}
-
+  
     def _save_file_state(self, state):
         """保存文件状态"""
         with open(self._get_file_state_path(), 'w', encoding='utf-8') as f:
@@ -367,7 +386,7 @@ class KnowledgeBase:
         self._save_file_state(new_state)
         logger.info(f"✅ 增量更新完成：新增/更新 {len(to_process_files)} 个文件，添加 {added_chunk_count} 个块；删除 {len(to_delete_files)} 个文件")
         
-  # ========== 重建 BM25 索引（如果启用混合检索且有文件变化） ==========
+            # ========== 重建 BM25 索引（如果启用混合检索且有文件变化） ==========
         if USE_HYBRID_SEARCH and (to_process_files or to_delete_files):
             logger.info("检测到文档变化，全量重建 BM25 索引...")
             try:
@@ -409,6 +428,7 @@ class KnowledgeBase:
         logger.info(f"BM25 索引已保存，共 {len(chunks)} 个块")
 
     def _load_bm25_index(self):
+
         import pickle
         if os.path.exists(self.bm25_path):
             with open(self.bm25_path, 'rb') as f:
@@ -416,6 +436,38 @@ class KnowledgeBase:
             logger.info("BM25 索引加载成功")
             return True
         return False
+
+    def _build_chapter_index(self, documents: List[Document]):
+        """构建章节摘要向量库"""
+        from langchain_community.vectorstores import Chroma
+        import shutil
+
+        # 清空旧的章节库
+        if os.path.exists(self.chapter_db_path):
+            shutil.rmtree(self.chapter_db_path)
+            logger.info(f"已删除旧章节库: {self.chapter_db_path}")
+
+        all_chapters = []
+        for doc in documents:
+            chapters = self.doc_loader.split_by_chapters(doc)
+            all_chapters.extend(chapters)
+
+        if not all_chapters:
+            logger.warning("未提取到任何章节，跳过分层检索索引构建")
+            return
+
+        # 生成章节摘要的文本（用于向量化）
+        summary_texts = [chap.metadata.get("summary", chap.page_content[:300]) for chap in all_chapters]
+        metadatas = [chap.metadata for chap in all_chapters]
+
+        self.chapter_store = Chroma.from_texts(
+            texts=summary_texts,
+            embedding=self.batch_vectorizer.embedding,
+            metadatas=metadatas,
+            persist_directory=self.chapter_db_path
+        )
+        self.chapter_store.persist()
+        logger.info(f"章节摘要索引构建完成，共 {len(all_chapters)} 个章节")
 
     def get_stats(self):
         """获取知识库统计"""

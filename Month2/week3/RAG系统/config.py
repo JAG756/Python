@@ -6,7 +6,7 @@ MODEL_NAME = "Qwen/Qwen1.5-1.8B-Chat"
 # 检索配置
 SIMILARITY_THRESHOLD = 0.5          # 相似度阈值（低于此值认为不相关）
 HYBRID_SIMILARITY_THRESHOLD = 0.3   # 混合检索相似度阈值（得分≥此值才采纳）
-TOP_K = 5                           # 检索返回的最相似块数量
+TOP_K = 10                           # 检索返回的最相似块数量
 
 # 生成配置
 USE_GENERATION =  True           # True: 让模型基于检索内容生成答案；False: 直接返回原文
@@ -41,10 +41,14 @@ LOG_FILE = "rag_system.log"
 LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 
 #使用语义分块配置
-USE_SEMANTIC_CHUNKING = True   # 默认关闭，需要时改为 True
+USE_SEMANTIC_CHUNKING = False   # 默认关闭，需要时改为 True
 
 USE_HYBRID_SEARCH = True   # 是否启用混合检索
 HYBRID_ALPHA = 0.5         # 向量相似度权重，BM25 权重为 1-alpha
 
 USE_RERANK = True   # 是否启用重排序
 RERANK_MODEL = "BAAI/bge-reranker-base"
+
+# 分层检索配置
+USE_HIERARCHICAL = True          # 是否启用分层检索（适用于长文档）
+CHAPTER_TOP_K = 2                # 第一层检索返回的相关章节数

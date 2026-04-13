@@ -11,11 +11,13 @@ import jieba
 from config import DEFAULT_MAX_LENGTH, DEFAULT_TEMPERATURE, USE_GENERATION
 from config import GREETINGS, THANKS, GOODBYE, FUZZY_QUESTIONS
 from config import USE_HYBRID_SEARCH, HYBRID_ALPHA, USE_RERANK, RERANK_MODEL
-from config import HYBRID_SIMILARITY_THRESHOLD
+from config import HYBRID_SIMILARITY_THRESHOLD, USE_HIERARCHICAL, CHAPTER_TOP_K
 from utils.chat_session import get_session, clear_session
 from core.knowledge_base import KnowledgeBase
+from langchain_core.documents import Document
 from core.reranker import BGEReranker
 from utils.logger import logger
+from typing import List, Tuple
 
 
 class RAGEngine:
@@ -106,6 +108,77 @@ class RAGEngine:
                     break
         return result_docs
     
+    def hierarchical_search(self, query: str, top_k_chunks: int = 3) -> List[Tuple[Document, float]]:
+        """
+        分层检索：先检索相关章节，再在章节内进行混合检索
+        """
+        if self.kb.chapter_store is None:
+            logger.warning("章节索引未加载，回退到普通混合检索")
+            return self.hybrid_search(query, top_k=top_k_chunks, alpha=HYBRID_ALPHA)
+
+        # 第一层：检索相关章节（取 CHAPTER_TOP_K 个）
+        chapter_results = self.kb.chapter_store.similarity_search_with_score(query, k=CHAPTER_TOP_K)
+        if not chapter_results:
+            return []
+
+        # 收集章节的元数据（原文档路径、章节标题等）
+        selected_chapters = []
+        for doc, score in chapter_results:
+            selected_chapters.append({
+                "source_path": doc.metadata.get("source_path"),
+                "chapter_title": doc.metadata.get("chapter_title"),
+                "score": score
+            })
+        logger.info(f"分层检索选中章节: {[c['chapter_title'] for c in selected_chapters]}")
+
+        # 第二层：在每个章节的原始文档中检索（通过元数据过滤）
+        # 注意：这里需要检索主向量库，但只返回属于这些章节的块。
+        # 由于主向量库中每个块的 metadata 没有章节信息，我们需要先获取章节的原文范围（简单做法：直接从文件加载章节内容并临时检索）
+        # 为简化，我们可以直接使用原混合检索，但增加过滤条件：只保留来源文档与选中章节文档一致的块，并限制块的内容范围（需要额外处理）。
+        # 另一种更简单的实现：直接对选中章节的文本内容进行临时向量检索（性能较低，但文档量不大时可接受）。
+        # 这里采用第二种简单方案：对每个章节的文本内容单独进行混合检索，然后合并结果。
+
+        all_chunks = []
+        for chap in selected_chapters:
+            # 获取章节的完整文本（需要从原文件加载并提取对应章节）
+            chap_text = self._extract_chapter_text(chap["source_path"], chap["chapter_title"])
+            if not chap_text:
+                continue
+            # 临时对章节文本进行分块并检索（复用现有的分块器）
+            from langchain_core.documents import Document
+            temp_doc = Document(page_content=chap_text, metadata={"source": chap["source_path"]})
+            temp_chunks = self.kb.doc_loader.split_documents([temp_doc])
+            # 构建临时向量库（仅在内存中）
+            from langchain_community.vectorstores import Chroma
+            temp_db = Chroma.from_documents(temp_chunks, self.kb.batch_vectorizer.embedding)
+            # 检索
+            temp_results = temp_db.similarity_search_with_score(query, k=top_k_chunks)
+            all_chunks.extend(temp_results)
+
+        # 去重并按得分排序
+        unique_chunks = {}
+        for doc, score in all_chunks:
+            if doc.page_content not in unique_chunks or score > unique_chunks[doc.page_content][1]:
+                unique_chunks[doc.page_content] = (doc, score)
+        sorted_chunks = sorted(unique_chunks.values(), key=lambda x: x[1], reverse=True)
+        return sorted_chunks[:top_k_chunks]
+
+    def _extract_chapter_text(self, source_path: str, chapter_title: str) -> str:
+        """从原始文件中提取指定章节的完整文本"""
+        import re
+        try:
+            with open(source_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            # 匹配从该章节标题到下一个二级标题之前的内容
+            pattern = rf'(##\s+{re.escape(chapter_title)}.*?)(?=\n##\s+|\Z)'
+            match = re.search(pattern, content, re.DOTALL)
+            if match:
+                return match.group(1).strip()
+        except Exception as e:
+            logger.error(f"提取章节文本失败: {e}")
+        return ""
+
+    
     def answer(self, question, session_id=None, max_len=DEFAULT_MAX_LENGTH, temp=DEFAULT_TEMPERATURE):
         # 输入校验
         if not question or not isinstance(question, str):
@@ -147,16 +220,23 @@ class RAGEngine:
             full_question = session.get_contextual_question(question)
             # 获取该会话的对话历史对象，然后根据历史将当前问题补全为完整问题
 
+            # 查询改写：如果用户明确询问定义，则追加“定义”关键词
+            if any(word in question for word in ["什么是", "何为", "定义", "解释一下", "是什么"]):
+                full_question = full_question + " 定义 定义 定义"
+                logger.info(f"查询改写: {full_question}")   # 可选，用于调试
+
             t0 = time.time()
 
-            # 检索：先召回 Top-K * 2 个候选（例如 TOP_K=3，则召回 6 个）
-            candidate_k = self.kb.top_k * 2
-            if USE_HYBRID_SEARCH and self.kb.bm25_index is not None:
-                docs = self.hybrid_search(full_question, top_k=candidate_k, alpha=HYBRID_ALPHA)
-                # 注意：hybrid_search 返回格式为 [(doc, score), ...]
+            # ========== 分层检索（如果启用） ==========
+            if USE_HIERARCHICAL and self.kb.chapter_store is not None:
+                docs = self.hierarchical_search(full_question, top_k_chunks=self.kb.top_k)
             else:
-                docs = self.kb.vectordb.similarity_search_with_score(full_question, k=candidate_k)
-
+                candidate_k = self.kb.top_k * 2
+                if USE_HYBRID_SEARCH and self.kb.bm25_index is not None:
+                    docs = self.hybrid_search(full_question, top_k=candidate_k, alpha=HYBRID_ALPHA)
+                else:
+                    docs = self.kb.vectordb.similarity_search_with_score(full_question, k=candidate_k)
+            # ========================================
 
             # ========== 新增：Rerank 重排序 ==========
             if USE_RERANK and hasattr(self, 'reranker') and self.reranker and len(docs) > 0:
@@ -196,7 +276,7 @@ class RAGEngine:
                 "page": first_doc.metadata.get("page", "未知"),
                 "score": first_score,
                 "content": first_doc.page_content,   # 可选，保留
-}
+            }
 
             t1 = time.time()
             
