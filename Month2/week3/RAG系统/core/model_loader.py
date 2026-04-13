@@ -5,7 +5,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import os
 os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 
-from config import MODEL_NAME
+from config import MODEL_NAME, MAX_PROMPT_LENGTH
 from utils.logger import logger
 
 class ModelLoader:
@@ -68,7 +68,7 @@ class ModelLoader:
     
     def generate(self, prompt, max_new_tokens, temperature):
         """生成回答"""
-        inputs = self.tokenizer(prompt, return_tensors="pt", max_length=512).to(self.device)
+        inputs = self.tokenizer(prompt, return_tensors="pt", max_length=MAX_PROMPT_LENGTH).to(self.device)
         
         with torch.no_grad():
             outputs = self.model.generate(

@@ -44,8 +44,8 @@ def main():
         logger.info("✅ 从已有向量库加载成功")
     except Exception as e:
         logger.warning(f"⚠️ 加载已有向量库失败: {e}，开始构建...")
-        if os.path.exists("docs_dir"):
-            kb.build_from_directory("docs_dir")
+        if os.path.exists(docs_dir):
+            kb.build_from_directory(docs_dir)
         else:
             from config import KNOWLEDGE_BASE
             kb.build_from_strings(KNOWLEDGE_BASE)

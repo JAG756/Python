@@ -53,7 +53,6 @@ class DocumentLoader:
         try:
             loader = TextLoader(text_path, encoding='utf-8')
             documents = loader.load()
-            
             for doc in documents:
                 doc.metadata = {
                     "source": os.path.basename(text_path),
@@ -135,3 +134,64 @@ class DocumentLoader:
         logger.info(f"✂️ 文档分块: {len(documents)} 页 → {len(chunks)} 个块")
         logger.info(f"   块大小: {self.chunk_size} 字符, 重叠: {self.chunk_overlap} 字符")
         return chunks
+
+        # 在 DocumentLoader 类中添加以下方法（放在 split_documents 方法之后）
+    def _semantic_split_text(self, text: str, threshold: float = 0.5) -> List[str]:
+        """语义分块：基于句子向量相似度切分"""
+        from sentence_transformers import SentenceTransformer
+        import numpy as np
+        
+        # 加载模型（只加载一次，缓存到实例）
+        if not hasattr(self, '_semantic_model'):
+            self._semantic_model = SentenceTransformer("moka-ai/m3e-base")
+        
+        # 分句（简单按句号、感叹号、问号分割）
+        sentences = []
+        for sep in ['。', '！', '？', '\n\n', '\n']:
+            if sep in text:
+                parts = text.split(sep)
+                for p in parts:
+                    if p.strip():
+                        sentences.append(p.strip() + sep)
+                break
+        else:
+            sentences = [text]
+        
+        if len(sentences) <= 1:
+            return sentences
+        
+        # 计算句子向量
+        embeds = self._semantic_model.encode(sentences)
+        chunks = []
+        current_chunk = [sentences[0]]
+        
+        for i in range(1, len(sentences)):
+            # 计算当前句子与前一句的余弦相似度
+            sim = np.dot(embeds[i-1], embeds[i]) / (np.linalg.norm(embeds[i-1]) * np.linalg.norm(embeds[i]))
+            if sim < threshold:
+                # 语义转折，切分
+                chunks.append(''.join(current_chunk))
+                current_chunk = [sentences[i]]
+            else:
+                current_chunk.append(sentences[i])
+        
+        if current_chunk:
+            chunks.append(''.join(current_chunk))
+        
+        return chunks
+
+    def semantic_split_documents(self, documents: List[Document], threshold: float = 0.5) -> List[Document]:
+        """对文档列表进行语义分块（保留元数据）"""
+        from langchain_core.documents import Document
+        all_chunks = []
+        for doc in documents:
+            text = doc.page_content
+            chunks_text = self._semantic_split_text(text, threshold)
+            for i, chunk_text in enumerate(chunks_text):
+                # 复制原文档的元数据，并添加块索引
+                new_metadata = doc.metadata.copy()
+                new_metadata["chunk_index"] = i
+                new_doc = Document(page_content=chunk_text, metadata=new_metadata)
+                all_chunks.append(new_doc)
+        logger.info(f"✂️ 语义分块: {len(documents)} 篇文档 → {len(all_chunks)} 个块")
+        return all_chunks

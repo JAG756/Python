@@ -14,16 +14,38 @@ class ChatSession:
         self.last_topic = None
     
     def add(self, question, answer, context):
-        """添加一轮对话"""
+        """添加一轮对话，并提取话题（支持通用问题）"""
         self.history.append({"q": question, "a": answer})
         self.last_context = context
+
+        # 1. 优先从用户问题中提取核心名词（去掉疑问词前缀）
+        topic = None
+        # 常见疑问词前缀
+        prefixes = ["什么是", "解释一下", "请说明", "介绍一下", "何为", "说说"]
+        cleaned = question
+        for prefix in prefixes:
+            if question.startswith(prefix):
+                cleaned = question[len(prefix):]
+                break
+        # 取第一个逗号、句号或空格前的内容作为话题
+        for sep in ["，", "。", "？", " ", "的"]:
+            if sep in cleaned:
+                topic = cleaned.split(sep)[0].strip()
+                break
+        if not topic:
+            topic = cleaned.strip()
         
-        # 提取话题
-        for kw in ["RAG", "CNN", "Transformer", "LoRA", "向量数据库"]:
+        # 只保留长度适中的话题（避免整段文字）
+        if topic and 2 <= len(topic) <= 30:
+            self.last_topic = topic
+            return
+        
+        # 2. 后备：预设关键词匹配
+        for kw in ["RAG", "CNN", "Transformer", "LoRA", "向量数据库", "死锁", "进程", "线程"]:
             if kw in question or (context and kw in context):
                 self.last_topic = kw
                 break
-    
+            
     def get_contextual_question(self, question):
         """将追问转换为完整问题"""
         # 处理指代词

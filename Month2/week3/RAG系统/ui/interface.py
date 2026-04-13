@@ -82,6 +82,7 @@ def create_interface(rag_engine):
                 project_root = os.path.dirname(current_dir)
                 docs_dir = os.path.join(project_root, "docs")
                 rag_engine.kb.incremental_update(docs_dir)
+                rag_engine._cache.clear()
                 return "✅ 知识库已更新"
             except Exception as e:
                 return f"❌ 失败: {e}"

@@ -45,20 +45,32 @@ class BatchVectorizer:
         return self.vectordb
     
     def create_vector_store_with_ids(self, chunks: List[Document], ids: List[str], persist: bool = True):
-        """创建向量数据库并指定每个文档的自定义ID"""
         if self.embedding is None:
             raise ValueError("请先调用 init_embedding()")
         
-        # 创建空库（不立即添加文档）
+        # 1. 创建空向量库
         self.vectordb = Chroma(
             embedding_function=self.embedding,
             persist_directory=self.vector_db_path if persist else None
         )
-        # 批量添加文档并传入自定义ID
-        self.vectordb.add_documents(documents=chunks, ids=ids)
+        
+        # 2. 批量生成 embedding（关键优化点）
+        texts = [chunk.page_content for chunk in chunks]
+        metadatas = [chunk.metadata for chunk in chunks]
+        # HuggingFaceEmbeddings 内部已支持 batch，但为了确保批量，直接调用 embed_documents
+        embeddings = self.embedding.embed_documents(texts)   # 一次性生成所有向量
+        
+        # 3. 批量插入底层 collection（绕过 add_documents 的逐条循环）
+        self.vectordb._collection.add(
+            embeddings=embeddings,
+            metadatas=metadatas,
+            documents=texts,
+            ids=ids
+        )
         
         if persist:
-            logger.info(f"💾 向量库已保存到: {self.vector_db_path}，共 {len(chunks)} 个块")
+            self.vectordb.persist()
+            logger.info(f"💾 向量库已保存到: {self.vector_db_path}，共 {len(chunks)} 个块（批量插入）")
         
         return self.vectordb
 
@@ -85,8 +97,31 @@ class BatchVectorizer:
             self.vectordb.add_documents(documents, ids=ids)
         else:
             self.vectordb.add_documents(documents)
-            self.vectordb.persist()  # 新增：强制持久化
-            logger.info(f"➕ 增量添加 {len(documents)} 个文档")
+        self.vectordb.persist()  # 新增：强制持久化
+        logger.info(f"➕ 增量添加 {len(documents)} 个文档")
+
+    def add_documents_batch(self, documents: List[Document], ids: List[str], batch_size=32):
+        """批量添加文档（用于增量更新，比 add_documents 快）"""
+        if self.vectordb is None:
+            raise ValueError("请先创建或加载向量库")
+        
+        texts = [doc.page_content for doc in documents]
+        metadatas = [doc.metadata for doc in documents]
+        # 分批生成 embedding（避免 OOM）
+        all_embeddings = []
+        for i in range(0, len(texts), batch_size):
+            batch_texts = texts[i:i+batch_size]
+            batch_emb = self.embedding.embed_documents(batch_texts)
+            all_embeddings.extend(batch_emb)
+        
+        self.vectordb._collection.add(
+            embeddings=all_embeddings,
+            metadatas=metadatas,
+            documents=texts,
+            ids=ids
+        )
+        self.vectordb.persist()
+        logger.info(f"➕ 批量添加 {len(documents)} 个文档")        
     
     def delete_collection(self):
         """删除向量库"""

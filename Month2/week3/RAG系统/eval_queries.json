@@ -1,0 +1,7 @@
+[
+    {"query": "银行家算法", "relevant_docs": ["死锁.txt"]},
+    {"query": "HTTP 503", "relevant_docs": ["HTTP 状态码.txt"]},
+    {"query": "MVCC 的核心思想", "relevant_docs": ["MVCC.txt"]},
+    {"query": "反向传播的作用", "relevant_docs": ["反向传播.txt", "优化器.txt", "损失函数.txt"]},
+    {"query": "池化层的作用", "relevant_docs": ["CNN.txt"]}
+]

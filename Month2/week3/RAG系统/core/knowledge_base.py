@@ -6,12 +6,16 @@
 import os
 import json
 import hashlib
+import time 
+from collections import defaultdict
 from typing import List, Dict, Optional, Tuple
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 
-from config import KNOWLEDGE_BASE, SIMILARITY_THRESHOLD, TOP_K
+from config import KNOWLEDGE_BASE, SIMILARITY_THRESHOLD, TOP_K, USE_SEMANTIC_CHUNKING
+from config import USE_HYBRID_SEARCH
+
 from core.document_loader import DocumentLoader
 from core.batch_vectorizer import BatchVectorizer
 from utils.logger import logger
@@ -27,6 +31,9 @@ class KnowledgeBase:
         self.vector_db_path = vector_db_path
         self.doc_loader = DocumentLoader()
         self.batch_vectorizer = BatchVectorizer(vector_db_path)
+        self.bm25_index = None           # 存放 BM25 模型对象
+        self.bm25_chunks = []            # 存放与 BM25 索引顺序对应的文本块（用于返回结果）
+        self.bm25_path = os.path.join(os.path.dirname(vector_db_path), "bm25_index.pkl")
     #初始化
     
     def build_from_strings(self, texts: List[str]):
@@ -70,31 +77,32 @@ class KnowledgeBase:
             logger.warning("没有加载到任何文档，使用默认知识库")
             return self.build_from_strings(KNOWLEDGE_BASE)
         
-        # 分块
-        chunks = self.doc_loader.split_documents(documents)
-        
-        # ========== 新增：为每个 chunk 生成自定义 ID ==========
-        # 需要知道每个 chunk 来自哪个文件，以便后续生成 ID
-        # 由于 chunks 已经保留了 metadata（包含 source_path 和 page），我们可以遍历生成
+        # 分块：根据配置选择递归分块或语义分块
+        if USE_SEMANTIC_CHUNKING:
+            logger.info("使用语义分块策略")
+            chunks = self.doc_loader.semantic_split_documents(documents, threshold=SIMILARITY_THRESHOLD)
+        else:
+            logger.info("使用递归分块策略")
+            chunks = self.doc_loader.split_documents(documents)
+
+        file_counter = defaultdict(int)
         chunk_ids = []
         for chunk in chunks:
             file_path = chunk.metadata.get("source_path", "")
             page = chunk.metadata.get("page", 0)
-            # 使用 _get_all_document_ids 的逻辑，但这里需要为单个 chunk 生成 ID
-            # 注意：_get_all_document_ids 是为整个文件的 chunks 批量生成的，这里我们模拟一个简单规则
             file_hash = hashlib.md5(file_path.encode()).hexdigest()[:8]
-            # 由于分块后每个 chunk 没有块内索引，我们用它在列表中的位置作为临时索引（不完美但唯一）
-            # 更好的做法：在 split_documents 时保留一个 chunk_index，但为了简化，我们基于内容生成
-            # 这里采用更可靠的方式：使用文件路径+页码+内容前50字符的哈希
-            content_hash = hashlib.md5(chunk.page_content[:50].encode()).hexdigest()[:4]
-            chunk_id = f"{file_hash}_{page}_{content_hash}"
+            idx = file_counter[file_path]
+            chunk_id = f"{file_hash}_{page}_{idx}"
             chunk_ids.append(chunk_id)
-        # ==================================================
+            file_counter[file_path] += 1
+
         
         self.batch_vectorizer.init_embedding(self.device)
         # 使用带 ID 的方法创建向量库
+        start = time.time()
         self.vectordb = self.batch_vectorizer.create_vector_store_with_ids(chunks, chunk_ids)
-        
+        elapsed = time.time() - start
+        logger.info(f"⏱️ 向量化耗时: {elapsed:.2f} 秒，共 {len(chunks)} 个块")
         # ========== 新增：保存文件状态 ==========
         # 构建文件状态字典：需要知道每个文件对应的所有 chunk_ids
         file_state = {}
@@ -113,7 +121,12 @@ class KnowledgeBase:
             file_state[rel_path]["chunk_ids"].append(cid)
         self._save_file_state(file_state)
         # ======================================
-        
+
+        # ========== 在这里插入 BM25 索引构建 ==========
+        if USE_HYBRID_SEARCH:
+            self._build_bm25_index(chunks)
+        # ==========================================
+
         logger.info(f"知识库构建完成，共 {len(chunks)} 个文档块")
         return self
     
@@ -161,6 +174,8 @@ class KnowledgeBase:
             
             if self.vectordb:
                 logger.info("向量库加载成功")
+                if USE_HYBRID_SEARCH:
+                    self._load_bm25_index()
                 return self
             else:
                 raise FileNotFoundError("向量库目录存在但无法加载")
@@ -226,10 +241,8 @@ class KnowledgeBase:
         file_hash = hashlib.md5(file_path.encode()).hexdigest()[:8]
         ids = []
         for i, chunk in enumerate(chunks):
-            # 从chunk.metadata中获取页码
-            page = chunk.metadata.get("page", 0)
-        # 统一为：file_hash + page + 索引i（与build_from_directory对齐）
-            ids.append(f"{file_hash}_{page}_{i}")
+            page = chunk.metadata.get("page", 0)                 # 从chunk.metadata中获取页码 
+            ids.append(f"{file_hash}_{page}_{i}")                # 统一为：file_hash + page + 索引i（与build_from_directory对齐）
         return ids
 
     def incremental_update(self, docs_dir: str):
@@ -284,18 +297,25 @@ class KnowledgeBase:
                     to_process_files.append((rel_path, full_path))
 
         # 处理删除：从向量库中移除这些文件的所有块
+
         if to_delete_files:
-            ids_to_delete = []
             for rel_path in to_delete_files:
-                if "chunk_ids" in old_state.get(rel_path, {}):
-                    ids_to_delete.extend(old_state[rel_path]["chunk_ids"])
+                full_path = os.path.join(docs_dir, rel_path)
+                logger.info(f"删除文件: {rel_path}")
+                # 1. 优先使用 chunk_ids 删除
+                old_info = old_state.get(rel_path, {})
+                if "chunk_ids" in old_info and old_info["chunk_ids"]:
+                    self.batch_vectorizer.delete_by_ids(old_info["chunk_ids"])
+                    logger.info(f"通过 ID 删除 {len(old_info['chunk_ids'])} 个块")
                 else:
-                    # 兜底：如果旧状态没有 chunk_ids，尝试通过 metadata 删除（需要 Chroma 支持 where）
-                    # 为了简单，这里记录警告并跳过（或者可以全量重建，但为了代码简洁，先警告）
-                    logger.warning(f"无法删除文件 {rel_path} 的块，缺少ID记录，建议重建向量库")
-            if ids_to_delete:
-                self.batch_vectorizer.delete_by_ids(ids_to_delete)
-                logger.info(f"已删除 {len(ids_to_delete)} 个块，来自 {len(to_delete_files)} 个移除的文件")
+                    logger.warning(f"文件 {rel_path} 缺少 chunk_ids，尝试通过元数据删除")
+                # 2. 兜底：通过 source_path 元数据删除
+                try:
+                    self.batch_vectorizer.vectordb._collection.delete(where={"source_path": full_path})
+                    logger.info(f"通过 metadata 删除文件 {rel_path} 的所有残留块")
+                except Exception as e:
+                    logger.error(f"metadata 删除失败: {e}")
+
 
         # 处理新增/更新
         added_chunk_count = 0
@@ -329,7 +349,7 @@ class KnowledgeBase:
                 logger.info(f"删除旧块 {len(old_ids)} 个")
             
             # 添加新块，并传入自定义 ID
-            self.batch_vectorizer.add_documents(chunks, ids=chunk_ids)   # 注意这里传入了 ids
+            self.batch_vectorizer.add_documents_batch(chunks, ids=chunk_ids, batch_size=32)   # 注意这里传入了 ids
             added_chunk_count += len(chunks)
             
             # 记录新状态
@@ -347,6 +367,56 @@ class KnowledgeBase:
         self._save_file_state(new_state)
         logger.info(f"✅ 增量更新完成：新增/更新 {len(to_process_files)} 个文件，添加 {added_chunk_count} 个块；删除 {len(to_delete_files)} 个文件")
         
+  # ========== 重建 BM25 索引（如果启用混合检索且有文件变化） ==========
+        if USE_HYBRID_SEARCH and (to_process_files or to_delete_files):
+            logger.info("检测到文档变化，全量重建 BM25 索引...")
+            try:
+                # 从向量库中获取所有已存储的文档块（包括新增和未变的）
+                # Chroma 的 get() 方法可以获取全部数据
+                all_data = self.vectordb._collection.get(include=["documents", "metadatas"])
+                if all_data and all_data['documents']:
+                    # 重建 Document 对象列表
+                    chunks = []
+                    for doc_text, metadata in zip(all_data['documents'], all_data['metadatas']):
+                        doc = Document(page_content=doc_text, metadata=metadata)
+                        chunks.append(doc)
+                    # 重新构建 BM25 索引
+                    self._build_bm25_index(chunks)
+                    logger.info(f"BM25 索引重建完成，共 {len(chunks)} 个块")
+                else:
+                    logger.warning("向量库中无文档，跳过 BM25 重建")
+            except Exception as e:
+                logger.error(f"重建 BM25 索引失败: {e}", exc_info=True)
+        # =================================================================
+
+    def _build_bm25_index(self, chunks: List[Document]):
+        """从文档块构建 BM25 索引（使用 jieba 分词）"""
+        import jieba
+        from rank_bm25 import BM25Okapi
+        import pickle
+
+        logger.info("构建 BM25 关键词索引...")
+        tokenized_corpus = []
+        self.bm25_chunks = chunks  # 保持顺序一致
+        for chunk in chunks:
+            # 中文分词（可去除停用词，此处简化）
+            words = list(jieba.cut(chunk.page_content))
+            tokenized_corpus.append(words)
+        self.bm25_index = BM25Okapi(tokenized_corpus)
+        # 持久化到磁盘
+        with open(self.bm25_path, 'wb') as f:
+            pickle.dump((self.bm25_index, self.bm25_chunks), f)
+        logger.info(f"BM25 索引已保存，共 {len(chunks)} 个块")
+
+    def _load_bm25_index(self):
+        import pickle
+        if os.path.exists(self.bm25_path):
+            with open(self.bm25_path, 'rb') as f:
+                self.bm25_index, self.bm25_chunks = pickle.load(f)
+            logger.info("BM25 索引加载成功")
+            return True
+        return False
+
     def get_stats(self):
         """获取知识库统计"""
         return self.batch_vectorizer.get_stats()

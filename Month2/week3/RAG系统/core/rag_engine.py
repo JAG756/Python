@@ -2,12 +2,21 @@
 """
 RAG核心引擎 - 带检索溯源（支持生成式/检索式切换）
 """
+import os
+os.environ["FLASH_ATTENTION_DISABLE"] = "1"
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import time
+import jieba
 from config import DEFAULT_MAX_LENGTH, DEFAULT_TEMPERATURE, USE_GENERATION
 from config import GREETINGS, THANKS, GOODBYE, FUZZY_QUESTIONS
+from config import USE_HYBRID_SEARCH, HYBRID_ALPHA, USE_RERANK, RERANK_MODEL
+from config import HYBRID_SIMILARITY_THRESHOLD
 from utils.chat_session import get_session, clear_session
 from core.knowledge_base import KnowledgeBase
+from core.reranker import BGEReranker
 from utils.logger import logger
+
 
 class RAGEngine:
     """RAG引擎（带溯源，可切换生成/直接返回）"""
@@ -17,6 +26,10 @@ class RAGEngine:
         self.kb = knowledge_base
         self.tokenizer = model_loader.tokenizer
         self._cache = {}   # {question: (answer_text, session_id)}
+        if USE_RERANK:
+            self.reranker = BGEReranker(model_name=RERANK_MODEL)
+        else:
+            self.reranker = None
     
     def detect_intent(self, question):
         """意图识别"""
@@ -36,6 +49,62 @@ class RAGEngine:
             return "clear", None
         
         return "normal", None
+
+    def hybrid_search(self, query: str, top_k: int = 3, alpha: float = 0.5):
+        """
+        混合检索：向量检索 + BM25，加权融合得分
+        alpha: 向量相似度权重，BM25 权重为 1-alpha
+        """
+        # 1. 向量检索（取更多候选，比如 top_k * 2）
+        vector_results = self.kb.vectordb.similarity_search_with_score(query, k=top_k * 2)
+        # 将得分（距离）转换为相似度（距离越小相似度越高）
+        max_dist = max([score for _, score in vector_results]) if vector_results else 1.0
+        vector_scores = {}
+        for doc, score in vector_results:
+            sim = 1 - (score / max_dist)   # 归一化到 [0,1]
+            vector_scores[doc.page_content] = sim   # 用内容作为临时 key（实际应该用 id，但这里简化）
+        
+        # 2. BM25 检索
+        if self.kb.bm25_index is not None:
+            tokenized_query = list(jieba.cut(query))
+            bm25_scores = self.kb.bm25_index.get_scores(tokenized_query)
+            # 归一化 BM25 分数
+            if bm25_scores is not None and len(bm25_scores) > 0:
+                max_bm25 = max(bm25_scores)
+                bm25_norm = [s / max_bm25 for s in bm25_scores]
+            else:
+                bm25_norm = []
+
+            
+            # 建立 BM25 得分映射（注意顺序与 self.kb.bm25_chunks 一致）
+            bm25_dict = {}
+            for idx, chunk in enumerate(self.kb.bm25_chunks):
+                bm25_dict[chunk.page_content] = bm25_norm[idx]
+        else:
+            bm25_dict = {}
+        
+        # 3. 融合得分（取并集）
+        all_contents = set(vector_scores.keys()) | set(bm25_dict.keys())
+        fused = []
+        for content in all_contents:
+            v_score = vector_scores.get(content, 0.0)
+            b_score = bm25_dict.get(content, 0.0)
+            final = alpha * v_score + (1 - alpha) * b_score
+            fused.append((content, final))
+        
+        # 4. 排序取 top_k
+        fused.sort(key=lambda x: x[1], reverse=True)
+        top_contents = fused[:top_k]
+        
+        # 5. 返回对应的 Document 对象和得分（需要从原 chunks 中找回）
+        result_docs = []
+        for content, score in top_contents:
+            # 从 bm25_chunks 或 vector_results 中找回原始 doc
+            for chunk in self.kb.bm25_chunks:
+                if chunk.page_content == content:
+                    result_docs.append((chunk, score))
+                    break
+        return result_docs
     
     def answer(self, question, session_id=None, max_len=DEFAULT_MAX_LENGTH, temp=DEFAULT_TEMPERATURE):
         # 输入校验
@@ -48,7 +117,7 @@ class RAGEngine:
             # 注意：这里我们不直接返回错误，而是截断问题并继续处理，避免用户体验过差
         question = question.strip()
         #去掉问题首尾的空白字符，避免因为多余的空格导致检索失败或意图识别错误
-        
+
         try:
             # 创建会话ID
             # 捕捉异常
@@ -80,19 +149,56 @@ class RAGEngine:
 
             t0 = time.time()
 
-            # 检索
-            result = self.kb.search_with_source(full_question)
-            #调用知识库的检索方法，传入补全后的问题，获取检索结果（包含内容和来源信息）
+            # 检索：先召回 Top-K * 2 个候选（例如 TOP_K=3，则召回 6 个）
+            candidate_k = self.kb.top_k * 2
+            if USE_HYBRID_SEARCH and self.kb.bm25_index is not None:
+                docs = self.hybrid_search(full_question, top_k=candidate_k, alpha=HYBRID_ALPHA)
+                # 注意：hybrid_search 返回格式为 [(doc, score), ...]
+            else:
+                docs = self.kb.vectordb.similarity_search_with_score(full_question, k=candidate_k)
+
+
+            # ========== 新增：Rerank 重排序 ==========
+            if USE_RERANK and hasattr(self, 'reranker') and self.reranker and len(docs) > 0:
+                logger.info("🔄 执行 Rerank 重排序...")
+                query = full_question
+                candidates = [doc.page_content for doc, _ in docs]
+                reranked = self.reranker.rerank(query, candidates, top_k=self.kb.top_k)
+                # 根据重排序结果构建新的 docs 列表
+                reranked_docs = []
+                for idx, score in reranked:
+                    original_doc, original_score = docs[idx]   # original_score 是原始检索得分
+                    # 使用 Rerank 模型给出的新分数（替换原得分）
+                    reranked_docs.append((original_doc, score))
+                docs = reranked_docs
+            else:
+                # 如果没有 Rerank，直接截取前 top_k 个
+                docs = docs[:self.kb.top_k]
+            # =======================================    
+
+            # 收集有效片段（根据检索类型使用不同的阈值判断）
+            if USE_HYBRID_SEARCH and self.kb.bm25_index is not None:
+                # 混合检索：得分越高越相似，阈值设为 0.3（可调整）
+                valid_docs = [(doc, score) for doc, score in docs if score >= HYBRID_SIMILARITY_THRESHOLD]
+            else:
+                # 纯向量检索：得分（距离）越小越相似，阈值使用 config 中的 SIMILARITY_THRESHOLD
+                valid_docs = [(doc, score) for doc, score in docs if score <= self.kb.threshold]
+
+            if not valid_docs and docs:
+                valid_docs = [docs[0]]  # 保底取最相关的一个
+
+            # 合并多个片段作为上下文（用 --- 分隔）
+            context = "\n\n---\n\n".join([doc.page_content for doc, _ in valid_docs])
+            # 取第一个片段用于来源显示（转换为字典）
+            first_doc, first_score = valid_docs[0]
+            source_info = {
+                "source": first_doc.metadata.get("source", "未知来源"),
+                "page": first_doc.metadata.get("page", "未知"),
+                "score": first_score,
+                "content": first_doc.page_content,   # 可选，保留
+}
 
             t1 = time.time()
-
-            if result is None:
-                logger.info(f"未找到关于「{question}」的信息")
-                return f"未找到关于「{question}」的信息。\n\n💡 可以问：什么是RAG？CNN是什么？", session_id
-            
-            context = result["content"]
-            source_info = result
-            # 这里我们保留了完整的检索结果对象（包含content、source、page、score等），以便后续生成答案时可以附加来源信息。
             
             # ---------- 核心改动：根据开关决定是否生成 ----------
             if USE_GENERATION:
@@ -140,12 +246,12 @@ class RAGEngine:
             # 添加来源信息（无论哪种模式都保留）
             if source_info:
                 source_display = f"""
----
-📚 **来源信息**：
-• 文档：{source_info['source']}
-• 页码：第{source_info['page']}页
-• 相关度：{source_info['score']:.2f}
-"""
+            ---
+            📚 **来源信息**：
+            • 文档：{source_info['source']}
+            • 页码：第{source_info['page']}页
+            • 相关度：{source_info['score']:.2f}
+            """
                 answer_text = answer_text + source_display
             else:
                 answer_text = answer_text + "\n---\n📚 **来源**：内置知识库"
