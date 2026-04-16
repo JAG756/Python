@@ -386,26 +386,9 @@ class KnowledgeBase:
         self._save_file_state(new_state)
         logger.info(f"✅ 增量更新完成：新增/更新 {len(to_process_files)} 个文件，添加 {added_chunk_count} 个块；删除 {len(to_delete_files)} 个文件")
         
-            # ========== 重建 BM25 索引（如果启用混合检索且有文件变化） ==========
+        # ========== 重建 BM25 索引（如果启用混合检索且有文件变化） ==========
         if USE_HYBRID_SEARCH and (to_process_files or to_delete_files):
-            logger.info("检测到文档变化，全量重建 BM25 索引...")
-            try:
-                # 从向量库中获取所有已存储的文档块（包括新增和未变的）
-                # Chroma 的 get() 方法可以获取全部数据
-                all_data = self.vectordb._collection.get(include=["documents", "metadatas"])
-                if all_data and all_data['documents']:
-                    # 重建 Document 对象列表
-                    chunks = []
-                    for doc_text, metadata in zip(all_data['documents'], all_data['metadatas']):
-                        doc = Document(page_content=doc_text, metadata=metadata)
-                        chunks.append(doc)
-                    # 重新构建 BM25 索引
-                    self._build_bm25_index(chunks)
-                    logger.info(f"BM25 索引重建完成，共 {len(chunks)} 个块")
-                else:
-                    logger.warning("向量库中无文档，跳过 BM25 重建")
-            except Exception as e:
-                logger.error(f"重建 BM25 索引失败: {e}", exc_info=True)
+            self._rebuild_bm25_from_all()
         # =================================================================
 
     def _build_bm25_index(self, chunks: List[Document]):
@@ -426,6 +409,25 @@ class KnowledgeBase:
         with open(self.bm25_path, 'wb') as f:
             pickle.dump((self.bm25_index, self.bm25_chunks), f)
         logger.info(f"BM25 索引已保存，共 {len(chunks)} 个块")
+
+    def _rebuild_bm25_from_all(self):
+        """从当前向量库中所有文档块重建 BM25 索引"""
+        if self.vectordb is None:
+            logger.warning("向量库未初始化，无法重建 BM25")
+            return
+        try:
+            all_data = self.vectordb._collection.get(include=["documents", "metadatas"])
+            if not all_data or not all_data['documents']:
+                logger.warning("向量库中无文档，跳过 BM25 重建")
+                return
+            chunks = []
+            for doc_text, metadata in zip(all_data['documents'], all_data['metadatas']):
+                doc = Document(page_content=doc_text, metadata=metadata)
+                chunks.append(doc)
+            self._build_bm25_index(chunks)
+            logger.info("BM25 索引已从全量数据重建")
+        except Exception as e:
+            logger.error(f"重建 BM25 索引失败: {e}", exc_info=True)
 
     def _load_bm25_index(self):
 

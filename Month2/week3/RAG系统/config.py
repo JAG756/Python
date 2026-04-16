@@ -50,5 +50,5 @@ USE_RERANK = True   # 是否启用重排序
 RERANK_MODEL = "BAAI/bge-reranker-base"
 
 # 分层检索配置
-USE_HIERARCHICAL = True          # 是否启用分层检索（适用于长文档）
+USE_HIERARCHICAL = False          # 是否启用分层检索（适用于长文档）
 CHAPTER_TOP_K = 2                # 第一层检索返回的相关章节数

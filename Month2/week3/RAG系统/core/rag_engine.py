@@ -144,6 +144,7 @@ class RAGEngine:
             chap_text = self._extract_chapter_text(chap["source_path"], chap["chapter_title"])
             if not chap_text:
                 continue
+            logger.info(f"章节 '{chap['chapter_title']}' 文本长度: {len(chap_text)}")
             # 临时对章节文本进行分块并检索（复用现有的分块器）
             from langchain_core.documents import Document
             temp_doc = Document(page_content=chap_text, metadata={"source": chap["source_path"]})
@@ -153,31 +154,79 @@ class RAGEngine:
             temp_db = Chroma.from_documents(temp_chunks, self.kb.batch_vectorizer.embedding)
             # 检索
             temp_results = temp_db.similarity_search_with_score(query, k=top_k_chunks)
-            all_chunks.extend(temp_results)
-
+            if temp_results:
+                all_chunks.extend(temp_results)
+            else:
+                # 如果没有检索结果，则使用整个章节文本作为一个块（降级处理）
+                logger.info(f"章节 {chap['chapter_title']} 无检索结果，使用整章文本")
+                all_chunks.append((Document(page_content=chap_text, metadata={"source": chap["source_path"]}), 1.0))
+            logger.info(f"临时检索返回 {len(temp_results)} 个结果")
         # 去重并按得分排序
         unique_chunks = {}
         for doc, score in all_chunks:
             if doc.page_content not in unique_chunks or score > unique_chunks[doc.page_content][1]:
                 unique_chunks[doc.page_content] = (doc, score)
         sorted_chunks = sorted(unique_chunks.values(), key=lambda x: x[1], reverse=True)
+
+         # 如果没有检索到任何块，回退到对整个文档的混合检索（防止返回空结果）
+        if not sorted_chunks and selected_chapters:
+            # 取第一个选中章节的完整文本，进行混合检索
+            fallback_text = self._extract_chapter_text(selected_chapters[0]["source_path"], selected_chapters[0]["chapter_title"])
+            if fallback_text:
+                # 对整个文本进行分块并混合检索
+                from langchain_core.documents import Document
+                temp_doc = Document(page_content=fallback_text, metadata={"source": selected_chapters[0]["source_path"]})
+                temp_chunks = self.kb.doc_loader.split_documents([temp_doc])
+                # 直接使用混合检索（复用已有方法）
+                # 注意：这里简单取前 top_k_chunks 个块，并赋予一个默认得分
+                for i, chunk in enumerate(temp_chunks[:top_k_chunks]):
+                    sorted_chunks.append((chunk, 1.0 - i * 0.1))  # 降序得分
+                logger.info(f"回退到全文混合检索，获得 {len(sorted_chunks)} 个块")
+
         return sorted_chunks[:top_k_chunks]
 
     def _extract_chapter_text(self, source_path: str, chapter_title: str) -> str:
-        """从原始文件中提取指定章节的完整文本"""
-        import re
+        """从原始文件中提取指定章节的完整文本（支持全文和带标题章节）"""
+        # 特殊处理“全文”章节
+        if chapter_title == "全文":
+            try:
+                with open(source_path, 'r', encoding='utf-8') as f:
+                    return f.read()
+            except Exception as e:
+                logger.error(f"读取全文失败: {e}")
+                return ""
+
         try:
             with open(source_path, 'r', encoding='utf-8') as f:
-                content = f.read()
-            # 匹配从该章节标题到下一个二级标题之前的内容
-            pattern = rf'(##\s+{re.escape(chapter_title)}.*?)(?=\n##\s+|\Z)'
-            match = re.search(pattern, content, re.DOTALL)
-            if match:
-                return match.group(1).strip()
+                lines = f.readlines()
         except Exception as e:
-            logger.error(f"提取章节文本失败: {e}")
-        return ""
+            logger.error(f"打开文件失败 {source_path}: {e}")
+            return ""
 
+        # 查找目标标题行（以 '##' 开头且包含 chapter_title 的部分）
+        start_idx = None
+        for i, line in enumerate(lines):
+            if line.strip().startswith('##') and chapter_title in line:
+                start_idx = i
+                break
+
+        if start_idx is None:
+            logger.warning(f"未找到章节标题: {chapter_title} 在文件 {source_path} 中")
+            return ""
+
+        # 查找下一个标题行（以 '##' 开头）作为结束位置
+        end_idx = len(lines)
+        for i in range(start_idx + 1, len(lines)):
+            if lines[i].strip().startswith('##'):
+                end_idx = i
+                break
+
+        # 提取章节内容（包含标题行）
+        chapter_lines = lines[start_idx:end_idx]
+        chapter_text = ''.join(chapter_lines).strip()
+        if not chapter_text:
+            logger.warning(f"章节 {chapter_title} 内容为空")
+        return chapter_text
     
     def answer(self, question, session_id=None, max_len=DEFAULT_MAX_LENGTH, temp=DEFAULT_TEMPERATURE):
         # 输入校验
@@ -221,9 +270,9 @@ class RAGEngine:
             # 获取该会话的对话历史对象，然后根据历史将当前问题补全为完整问题
 
             # 查询改写：如果用户明确询问定义，则追加“定义”关键词
-            if any(word in question for word in ["什么是", "何为", "定义", "解释一下", "是什么"]):
-                full_question = full_question + " 定义 定义 定义"
-                logger.info(f"查询改写: {full_question}")   # 可选，用于调试
+            # if any(word in question for word in ["什么是", "何为", "定义", "解释一下", "是什么"]):
+            #    full_question = full_question + " 定义 定义 定义"
+            #    logger.info(f"查询改写: {full_question}")   
 
             t0 = time.time()
 
@@ -237,6 +286,11 @@ class RAGEngine:
                 else:
                     docs = self.kb.vectordb.similarity_search_with_score(full_question, k=candidate_k)
             # ========================================
+
+            # 调试日志：打印检索结果
+            logger.info(f"检索返回 {len(docs)} 个候选，得分情况：")
+            for i, (doc, score) in enumerate(docs[:5]):
+                logger.info(f"  {i+1}. 来源: {doc.metadata.get('source')}, 得分: {score:.4f}, 内容预览: {doc.page_content[:50]}")
 
             # ========== 新增：Rerank 重排序 ==========
             if USE_RERANK and hasattr(self, 'reranker') and self.reranker and len(docs) > 0:
@@ -264,9 +318,13 @@ class RAGEngine:
                 # 纯向量检索：得分（距离）越小越相似，阈值使用 config 中的 SIMILARITY_THRESHOLD
                 valid_docs = [(doc, score) for doc, score in docs if score <= self.kb.threshold]
 
-            if not valid_docs and docs:
-                valid_docs = [docs[0]]  # 保底取最相关的一个
-
+            if not valid_docs:
+                if docs and docs[0][1] >= 0.1:   # 只有当最高分大于等于0.1时才采纳，否则认为无相关
+                    valid_docs = [docs[0]]
+                else:
+                    logger.info(f"未找到关于「{question}」的信息")
+                    return f"未找到关于「{question}」的信息。\n\n💡 可以问：什么是死锁？CNN是什么？", session_id
+                    
             # 合并多个片段作为上下文（用 --- 分隔）
             context = "\n\n---\n\n".join([doc.page_content for doc, _ in valid_docs])
             # 取第一个片段用于来源显示（转换为字典）

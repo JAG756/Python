@@ -61,6 +61,19 @@ def create_interface(rag_engine):
             update_btn = gr.Button("🔄 更新知识库", variant="secondary")
             update_status = gr.Textbox(label="更新状态", interactive=False, visible=True, scale=2)
         
+        with gr.Row():
+            export_btn = gr.Button("📄 导出对话", variant="secondary")
+            export_output = gr.Textbox(label="对话记录", interactive=False, visible=True, lines=10)
+
+        with gr.Row():
+            file_upload = gr.File(
+                label="上传知识库文档 (PDF/TXT/MD)",
+                file_count="multiple",
+                file_types=[".pdf", ".txt", ".md"]
+            )
+            upload_btn = gr.Button("📤 上传并更新", variant="primary")
+            upload_status = gr.Textbox(label="上传状态", interactive=False, visible=True, scale=2)
+
         with gr.Accordion("📋 示例问题", open=False):
             gr.Markdown("点击下方问题快速体验：")
             for i in range(0, len(EXAMPLE_QUESTIONS), 2):
@@ -88,6 +101,52 @@ def create_interface(rag_engine):
                 return f"❌ 失败: {e}"
 
         update_btn.click(update_kb, outputs=update_status)
+
+
+                # 文件上传处理函数
+        def handle_upload(files):
+            if not files:
+                return "未选择文件"
+            try:
+                import shutil
+                # 获取 docs 目录绝对路径
+                current_dir = os.path.dirname(os.path.abspath(__file__))
+                project_root = os.path.dirname(current_dir)
+                docs_dir = os.path.join(project_root, "docs")
+                os.makedirs(docs_dir, exist_ok=True)
+
+                saved_files = []
+                for file in files:
+                    # 获取原始文件名
+                    if hasattr(file, 'name'):
+                        src_path = file.name
+                        original_name = os.path.basename(src_path)
+                    else:
+                        src_path = file
+                        original_name = os.path.basename(file)
+                    dest_path = os.path.join(docs_dir, original_name)
+                    # 如果文件已存在，可先删除（或覆盖）
+                    if os.path.exists(dest_path):
+                        os.remove(dest_path)
+                    shutil.copy(src_path, dest_path)
+                    saved_files.append(dest_path)
+
+                # 调用增量更新（会自动处理新增、修改、删除）
+                rag_engine.kb.incremental_update(docs_dir)
+                rag_engine._cache.clear()
+                return f"✅ 成功上传 {len(saved_files)} 个文件，知识库已更新"
+            except Exception as e:
+                return f"❌ 失败: {e}"
+                
+        # 导出对话函数
+        def export_history(history):
+            if not history:
+                return "暂无对话记录"
+            lines = []
+            for turn in history:
+                role = "用户" if turn["role"] == "user" else "助手"
+                lines.append(f"**{role}**: {turn['content']}")
+            return "\n\n---\n\n".join(lines)
 
 
         # ========== 事件绑定 ==========
@@ -132,5 +191,9 @@ def create_interface(rag_engine):
         )
         
         clear_btn.click(do_clear, [session_id], [chatbot, msg, session_id])
+
+        upload_btn.click(handle_upload, inputs=file_upload, outputs=upload_status)
+        
+        export_btn.click(export_history, inputs=chatbot, outputs=export_output)
     
     return demo
